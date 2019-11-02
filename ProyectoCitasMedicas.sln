@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{6449F3C0-864C-4313-A364-ADB351E2E5B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaWPF", "CapaWPF\CapaWPF.csproj", "{243AED8D-B3A2-4855-BFAE-BD7BDE13DDCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6449F3C0-864C-4313-A364-ADB351E2E5B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6449F3C0-864C-4313-A364-ADB351E2E5B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6449F3C0-864C-4313-A364-ADB351E2E5B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{243AED8D-B3A2-4855-BFAE-BD7BDE13DDCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{243AED8D-B3A2-4855-BFAE-BD7BDE13DDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{243AED8D-B3A2-4855-BFAE-BD7BDE13DDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{243AED8D-B3A2-4855-BFAE-BD7BDE13DDCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
