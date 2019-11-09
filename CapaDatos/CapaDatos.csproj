@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="CD_Usuario.cs" />
     <Compile Include="CD_Conexion.cs" />
+    <Compile Include="Entidades\UsuarioDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
