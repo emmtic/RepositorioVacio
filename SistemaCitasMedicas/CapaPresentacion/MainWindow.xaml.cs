@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using CapaPresentacion.Vistas;
 namespace CapaPresentacion
 {
     /// <summary>
@@ -23,6 +23,12 @@ namespace CapaPresentacion
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Usuarios VentanaUsuario = new Usuarios();
+            VentanaUsuario.ShowDialog();
         }
     }
 }

@@ -1,0 +1,38 @@
+﻿<Window x:Class="CapaPresentacion.Vistas.Usuarios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CapaPresentacion.Vistas"
+        mc:Ignorable="d"
+        Title="ADMINISTRACION DE USUARIOS" Height="505.267" Width="1263">
+    <Grid>
+        <DataGrid x:Name="dtg_verUsuarios" HorizontalAlignment="Left" Height="308" Margin="32,32,0,0" VerticalAlignment="Top" Width="715" />
+        <Button x:Name="btn_agregarUsuario" Content="GUARDAR USUARIO" HorizontalAlignment="Left" Margin="876,364,0,0" VerticalAlignment="Top" Width="330" Height="42" Click="btn_agregarUsuario_Click"/>
+        <Button x:Name="btn_modificarUsuario" Content="EDITAR USUARIO" HorizontalAlignment="Left" Margin="32,364,0,0" VerticalAlignment="Top" Width="330" Height="42" Click="btn_modificarUsuario_Click"/>
+        <Button x:Name="btn_borrarUsuario" Content="BORRAR USUARIO" HorizontalAlignment="Left" Margin="417,364,0,0" VerticalAlignment="Top" Width="330" Height="42" Click="btn_borrarUsuario_Click"/>
+        <Label x:Name="lbl_nombreUsuario" Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="752,45,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_nombreUsuario" HorizontalAlignment="Left" Height="23" Margin="876,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
+        <Label x:Name="lbl_nombre" Content="Nombre" HorizontalAlignment="Left" Margin="752,76,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="23" Margin="876,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
+        <Label x:Name="lbl_apellido" Content="Apellido" HorizontalAlignment="Left" Margin="752,104,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_apellido" HorizontalAlignment="Left" Height="23" Margin="876,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
+        <Label x:Name="lbl_email" Content="Email" HorizontalAlignment="Left" Margin="752,132,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_email" HorizontalAlignment="Left" Height="23" Margin="876,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
+        <Label x:Name="lbl_contraseña" Content="Contraseña" HorizontalAlignment="Left" Margin="752,163,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_esAdmin" Content="Tipo de Usuario" HorizontalAlignment="Left" Margin="752,191,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_esActivo" Content="Estado de Usuario" HorizontalAlignment="Left" Margin="752,218,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_fechaAlta" Content="Fecha De Alta" HorizontalAlignment="Left" Margin="752,245,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmb_tipoUsuario" HorizontalAlignment="Left" Margin="876,191,0,0" VerticalAlignment="Top" Width="220">
+            <ComboBoxItem Content="Estándar"/>
+            <ComboBoxItem Content="Administrador"/>
+        </ComboBox>
+        <ComboBox x:Name="cmb_estadoUsuario" HorizontalAlignment="Left" Margin="876,218,0,0" VerticalAlignment="Top" Width="220" >
+            <ComboBoxItem Content="Habilitado"/>
+            <ComboBoxItem Content="Deshabilitado"/>
+        </ComboBox>
+        <DatePicker x:Name="dt_fechaAlta" HorizontalAlignment="Left" Margin="876,245,0,0" VerticalAlignment="Top" Width="220"/>
+        <PasswordBox x:Name="pswb_contraseña" HorizontalAlignment="Left" Margin="876,160,0,0" VerticalAlignment="Top" Width="330" Height="23"/>
+
+    </Grid>
+</Window>

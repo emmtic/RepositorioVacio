@@ -42,7 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CCM_Reserva.cs" />
+    <Compile Include="CCM_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{8c32f5d6-b378-4027-b823-71bbb0670963}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{f1711b42-cd13-450c-9e3f-bff66b9dcc42}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
