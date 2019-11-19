@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CapaPresentacion.Vistas;
+using System.Data;
+using Entidades;
+using CapaCitasMedicas;
+
 namespace CapaPresentacion
 {
     /// <summary>
@@ -20,6 +24,7 @@ namespace CapaPresentacion
     /// </summary>
     public partial class MainWindow : Window
     {
+        CCM_Login ObjetoCCM = new CCM_Login();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,8 +32,53 @@ namespace CapaPresentacion
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Usuarios VentanaUsuario = new Usuarios();
-            VentanaUsuario.ShowDialog();
+            
         }
+
+        private void btn_ingresar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txt_nombreUsuario.Text!="")
+            {
+                if (psw_contraseña.Password!="")
+                {
+                    CCM_Login Login = new CCM_Login();
+                    var ValidarLogin = Login.CheckUsuarios(txt_nombreUsuario.Text, psw_contraseña.Password);
+                    if (ValidarLogin==true)
+                    {
+                        Administracion VentanaAdministracion = new Administracion();
+                        VentanaAdministracion.Show();
+                        
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MensajeError("Usuario y/o Contraseña Incorrectos.\n Verifique e Intente Nuevamente.");
+                    }
+                }
+                else
+                {
+                    MensajeError("Ingrese una Contraseña");
+                }
+
+            }
+            else 
+            {
+                MensajeError("Ingrese un Usuario");
+            }
+            
+        }
+        private void MensajeError(string msj) {
+
+            lbl_mensajeDeError.Content = msj;
+            lbl_mensajeDeError.Visibility = Visibility.Visible;
+        }
+        //private void CerrarSesion(object sender, clos e) {
+        //    txt_nombreUsuario.Clear();
+        //    psw_contraseña.Clear();
+        //    lbl_mensajeDeError.Visibility = Visibility.Hidden;
+        //    this.Show();
+        //    txt_nombreUsuario.Focus();
+        
+        //}
     }
 }

@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion"
         mc:Ignorable="d"
-        Title="ADMINISTRACION" Height="450" Width="446">
+        Title="BIENVENIDOS AL SISTEMA DE GESTION DE CITAS" Height="400" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="btn_usuarios" Content="USUARIOS" HorizontalAlignment="Left" Margin="63,47,0,0" VerticalAlignment="Top" Width="308" Height="57" Click="button_Click"/>
+
+        <Button x:Name="btn_ingresar" Content="INGRESAR" HorizontalAlignment="Left" Margin="140,270,0,0" VerticalAlignment="Top" Width="116" Height="30" Click="btn_ingresar_Click"/>
+        <Label x:Name="lbl_usuario" Content="Usuario" HorizontalAlignment="Left" Margin="94,46,0,0" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="txt_nombreUsuario" HorizontalAlignment="Left" Height="24" Margin="94,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Label x:Name="lbl_contraseña" Content="Contraseña" HorizontalAlignment="Left" Margin="94,122,0,0" VerticalAlignment="Top" Width="200"/>
+        <PasswordBox x:Name="psw_contraseña" HorizontalAlignment="Left" Margin="94,148,0,0" VerticalAlignment="Top" Width="200" Height="24" PasswordChar="*"/>
+        <Label x:Name="lbl_mensajeDeError" Content="Mensaje de Error: " HorizontalAlignment="Left" Margin="70,196,0,0" VerticalAlignment="Top" Visibility="Hidden" FontSize="16"/>
 
     </Grid>
 </Window>
