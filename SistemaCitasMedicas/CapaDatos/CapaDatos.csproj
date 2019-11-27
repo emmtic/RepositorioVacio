@@ -63,7 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CD_Conexion.cs" />
+    <Compile Include="CD_HorarioMedico.cs" />
     <Compile Include="CD_Login.cs" />
+    <Compile Include="CD_Medico.cs" />
+    <Compile Include="CD_Paciente.cs" />
+    <Compile Include="CD_Reserva.cs" />
     <Compile Include="CD_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

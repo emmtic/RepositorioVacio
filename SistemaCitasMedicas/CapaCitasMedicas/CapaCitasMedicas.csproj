@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CCM_HorarioMedico.cs" />
     <Compile Include="CCM_Login.cs" />
+    <Compile Include="CCM_Medico.cs" />
+    <Compile Include="CCM_Paciente.cs" />
     <Compile Include="CCM_Reserva.cs" />
     <Compile Include="CCM_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
