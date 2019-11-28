@@ -62,8 +62,8 @@
     <Compile Include="Vistas\Administracion.xaml.cs">
       <DependentUpon>Administracion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\CP_Reserva\CP_Reserva.xaml.cs">
-      <DependentUpon>CP_Reserva.xaml</DependentUpon>
+    <Compile Include="Vistas\CP_Reserva\CP_ReservaCarga.xaml.cs">
+      <DependentUpon>CP_ReservaCarga.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\CP_Reserva\CP_ReservaRegistros.xaml.cs">
       <DependentUpon>CP_ReservaRegistros.xaml</DependentUpon>
@@ -83,7 +83,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\CP_Reserva\CP_Reserva.xaml">
+    <Page Include="Vistas\CP_Reserva\CP_ReservaCarga.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

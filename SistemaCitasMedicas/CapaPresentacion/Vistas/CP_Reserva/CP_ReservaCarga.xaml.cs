@@ -12,15 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Entidades;
-using Entidades.Cache;
 using CapaCitasMedicas;
 
 namespace CapaPresentacion.Vistas.CP_Reserva
 {
     /// <summary>
-    /// Lógica de interacción para CP_Reserva.xaml
+    /// Lógica de interacción para CP_ReservaCarga.xaml
     /// </summary>
-    public partial class CP_Reserva : Window
+    public partial class CP_ReservaCarga : Window
     {
         //atributoss y objetos instanciados para usar sus metodos
         private CCM_Reserva reservaCCM = new CCM_Reserva();
@@ -43,7 +42,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
 
         //CONSTRUCTORES       
-        public CP_Reserva() //Para instanciar si hay que crear una NUEVA reserva
+        public CP_ReservaCarga() //Para instanciar si hay que crear una NUEVA reserva
         {
             InitializeComponent();
 
@@ -52,7 +51,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             btnAgregarCita.Content = "Reservar Turno";
         }
 
-        public CP_Reserva(List<Reserva> reclistReservasAll, Reserva recReservaMod) //Para instancia si hay que MODIFICAR una reserva
+        public CP_ReservaCarga(List<Reserva> reclistReservasAll, Reserva recReservaMod) //Para instancia si hay que MODIFICAR una reserva
         {
             InitializeComponent();
 
@@ -170,7 +169,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                     try
                     {    //Probando con cualquier usuario
                         Reserva oreservaNueva = RecibeDelForm();
-                        oreservaNueva.NombreUsuario = UsuarioLoginCache.NombreUsuario; //carga del usuario que cargó esta reserva
+                        oreservaNueva.NombreUsuario = "Pedroperez"; //carga del usuario que cargó esta reserva
                         oreservaNueva.FechaAltaCita = DateTime.Now;
 
                         reservaCCM.Insertar(oreservaNueva);
@@ -189,7 +188,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                     {   //Probando con cualquier usuario
                         Reserva oreservaModificada = RecibeDelForm();
                         oreservaModificada.IdReserva = this.recReservaMod.IdReserva;
-                        oreservaModificada.NombreUsuario = UsuarioLoginCache.NombreUsuario; //modificacion del nuevo usuario
+                        oreservaModificada.NombreUsuario = "Pedroperez"; //modificacion del nuevo usuario
                         oreservaModificada.FechaAltaCita = DateTime.Now;
 
                         reservaCCM.Modificar(oreservaModificada);

@@ -58,7 +58,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
         //Metodos eventos
         private void btnVentanaNuevaCita_Click(object sender, RoutedEventArgs e)
         {
-            CP_Reserva ventanaNuevaCita = new CP_Reserva();
+            CP_ReservaCarga ventanaNuevaCita = new CP_ReservaCarga();
             ventanaNuevaCita.ShowDialog();
             DatosParaIniciar();
         }
@@ -68,7 +68,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             if (dtgridRegistrosCita.SelectedCells.Count > 0) //dtg_verUsuarios.SelectedCells.Count > 0 
             {
                 Reserva oreserva = (Reserva)dtgridRegistrosCita.SelectedItem;
-                CP_Reserva ventanaEditarCita = new CP_Reserva(this.listReservasAll, oreserva);
+                CP_ReservaCarga ventanaEditarCita = new CP_ReservaCarga(this.listReservasAll, oreserva);
                 ventanaEditarCita.ShowDialog();
                 DatosParaIniciar();
             }
