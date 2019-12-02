@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CapaDatos;
 using Entidades;
-using CapaDatos;
+using System.Collections.Generic;
+
+
 namespace CapaCitasMedicas
 {
     public class CCM_Paciente
