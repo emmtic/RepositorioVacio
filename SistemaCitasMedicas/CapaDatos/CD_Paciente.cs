@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data;
+﻿using Entidades;
 using MySql.Data.MySqlClient;
-using Entidades;
+using System;
+using System.Collections.Generic;
+
 
 namespace CapaDatos
 {
@@ -116,24 +113,24 @@ namespace CapaDatos
         {
             MySqlCommand comando = new MySqlCommand();
             string Cadena = "UPDATE paciente " +
-                "SET dni=@dni," +
-                "nombre=@nombre," +
+                "SET dni=@dni,"+
+                "nombre=@nombre,"+
                 "apellido=@apellido," +
-                "genero=@genero," +
-                "fecha_nac=@fecha_nac," +
-                "email=@email," +
+                "genero=@genero,"+
+                "fecha_nac=@fecha_nac,"+
+                "email=@email,"+
                 "direccion=@direccion," +
-                "telefono=@telefono," +
-                "enfermedad=@enfermedad," +
-                "medicamentos=@medicamentos," +
-                "alergia=@alergia," +
+                "telefono=@telefono,"+
+                "enfermedad=@enfermedad,"+
+                "medicamentos=@medicamentos,"+
+                "alergia=@alergia,"+
                 "fecha_alta=@fecha_alta " +
                 "WHERE id_paciente=@id_paciente";
 
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = Cadena;
 
-            comando.Parameters.AddWithValue("@id_paciente", paciente.id_paciente);
+            comando.Parameters.AddWithValue("@id_paciente",paciente.id_paciente);
             comando.Parameters.AddWithValue("@dni", paciente.dni);
             comando.Parameters.AddWithValue("@nombre", paciente.nombre);
             comando.Parameters.AddWithValue("@apellido", paciente.apellido);

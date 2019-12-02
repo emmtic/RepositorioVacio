@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entidades;
-using MySql.Data;
+﻿using Entidades;
 using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 
 
 namespace CapaDatos
@@ -25,7 +21,7 @@ namespace CapaDatos
 
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT id_medico,matricula,dni,nombre,apellido," +
-            "genero,fecha_nac,email,direccion,telefono,es_activo,especialidad,fecha_alta" +
+            "genero,fecha_nac,email,direccion,telefono,es_activo,especialidad,fecha_alta"+
             " FROM medico inner join especialidad USING (id_especialidad)";
             leer = comando.ExecuteReader();
             while (leer.Read())
@@ -49,21 +45,48 @@ namespace CapaDatos
             conexion.CerrarConexion();
             return MedicosDelaBD;
         }
-        public List<Medico> BuscarMedicoMatricula(string matricula)
+        public List<string> GetCampos()
+        {
+            MySqlDataReader leer;
+            MySqlCommand comando = new MySqlCommand();
+
+            List<string> CamposDeTabla = new List<string>();
+            string CampoDeTabla;
+
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT column_name "+
+            "FROM INFORMATION_SCHEMA.COLUMNS "+
+            "WHERE TABLE_NAME = 'medico'";
+
+            leer = comando.ExecuteReader();
+            while (leer.Read())
+            {
+                CampoDeTabla = leer["column_name"].ToString();
+                if (CampoDeTabla == "id_especialidad")
+                {
+                    CampoDeTabla = "especialidad";
+                }
+                CamposDeTabla.Add(CampoDeTabla);
+            }
+            conexion.CerrarConexion();
+            return CamposDeTabla;
+        }
+        public List<Medico> BuscarMedicoCampo(string campo,string buscado)
         {
             MySqlDataReader leer;
             MySqlCommand comando = new MySqlCommand();
 
             List<Medico> MedicosDelaBD = new List<Medico>();
             Medico MedicoBD;
+            
 
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT id_medico,matricula,dni,nombre,apellido," +
             "genero,fecha_nac,email,direccion,telefono,es_activo,especialidad,fecha_alta" +
-            " FROM medico inner join especialidad USING (id_especialidad) " +
-            "WHERE matricula=@matricula";
+            " FROM medico inner join especialidad USING (id_especialidad) "+
+            "WHERE "+campo+"=@buscado";
 
-            comando.Parameters.AddWithValue("@matricula", matricula);
+            comando.Parameters.AddWithValue("@buscado", buscado);
             leer = comando.ExecuteReader();
             while (leer.Read())
             {
@@ -110,9 +133,9 @@ namespace CapaDatos
         {
             MySqlCommand comando = new MySqlCommand();
             string Cadena = "INSERT INTO medico " +
-            "(matricula,dni,nombre,apellido,genero,fecha_nac,email,direccion," +
+            "(matricula,dni,nombre,apellido,genero,fecha_nac,email,direccion,"+
             "telefono,es_activo,id_especialidad,fecha_alta) " +
-            "VALUES (@matricula,@dni,@nombre,@apellido,@genero,@fecha_nac,@email,@direccion,@telefono," +
+            "VALUES (@matricula,@dni,@nombre,@apellido,@genero,@fecha_nac,@email,@direccion,@telefono,"+
             "@es_activo,(SELECT id_especialidad FROM especialidad " +
             "WHERE especialidad=@especialidad),@fecha_alta)";
             comando.Connection = conexion.AbrirConexion();
@@ -129,7 +152,7 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@telefono", medico.telefono);
             comando.Parameters.AddWithValue("@es_activo", medico.EsActivo);
             comando.Parameters.AddWithValue("@especialidad", medico.especialidad);
-
+            
             comando.Parameters.AddWithValue("@fecha_alta", medico.fechaDeAlta);
 
             comando.ExecuteNonQuery();
@@ -151,7 +174,7 @@ namespace CapaDatos
                 "direccion=@direccion," +
                 "telefono=@telefono," +
                 "id_especialidad=(SELECT id_especialidad FROM especialidad " +
-                "WHERE especialidad=@especialidad)," +
+                "WHERE especialidad=@especialidad),"+
                 "fecha_alta=@fecha_alta " +
                 "WHERE id_medico=@id_medico";
 
@@ -170,7 +193,7 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@telefono", medico.telefono);
             comando.Parameters.AddWithValue("@es_activo", medico.EsActivo);
             comando.Parameters.AddWithValue("@especialidad", medico.especialidad);
-
+            
             comando.Parameters.AddWithValue("@fecha_alta", medico.fechaDeAlta);
 
 

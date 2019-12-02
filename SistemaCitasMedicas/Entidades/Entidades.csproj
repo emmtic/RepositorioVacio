@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cache\UsuarioLoginCache.cs" />
+    <Compile Include="Especialidades.cs" />
     <Compile Include="HorarioMedico.cs" />
     <Compile Include="Medico.cs" />
     <Compile Include="Paciente.cs" />
