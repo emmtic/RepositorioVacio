@@ -1,0 +1,18 @@
+﻿<Window x:Class="CapaPresentacion.Vistas.Especialidades_Medicos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CapaPresentacion.Vistas"
+        mc:Ignorable="d"
+        Title="Especialidades Medicos" Height="370" Width="500">
+    <Grid>
+        <Label x:Name="lbl_especialidad" Content="Especialidad:" HorizontalAlignment="Left" Margin="41,27,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dtg_verEspecialidades" HorizontalAlignment="Left" Height="186" Margin="41,74,0,0" VerticalAlignment="Top" Width="408"/>
+        <TextBox x:Name="txt_especialidad" HorizontalAlignment="Left" Height="23" Margin="124,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
+        <Button x:Name="btn_guardar_especialidad" Content="GUARDAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="281,21,0,0" VerticalAlignment="Top" Width="168" Height="38" Click="btn_guardar_especialidad_Click"/>
+        <Button x:Name="btn_modificar_especialidad" Content="EDITAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="41,287,0,0" VerticalAlignment="Top" Width="162" Height="44" Click="btn_modificar_especialidad_Click"/>
+        <Button x:Name="btn_borrar_especialidad" Content="BORRAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="289,287,0,0" VerticalAlignment="Top" Width="160" Height="44" Click="btn_borrar_especialidad_Click"/>
+
+    </Grid>
+</Window>
