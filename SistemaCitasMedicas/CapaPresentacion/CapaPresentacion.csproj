@@ -68,6 +68,15 @@
     <Compile Include="Vistas\CP_Reserva\CP_ReservaRegistros.xaml.cs">
       <DependentUpon>CP_ReservaRegistros.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Especialidades_Medicos.xaml.cs">
+      <DependentUpon>Especialidades_Medicos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Medicos.xaml.cs">
+      <DependentUpon>Medicos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Pacientes.xaml.cs">
+      <DependentUpon>Pacientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Usuarios.xaml.cs">
       <DependentUpon>Usuarios.xaml</DependentUpon>
     </Compile>
@@ -90,6 +99,18 @@
     <Page Include="Vistas\CP_Reserva\CP_ReservaRegistros.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\Especialidades_Medicos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\Medicos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\Pacientes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\Usuarios.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -45,5 +45,17 @@ namespace CapaPresentacion.Vistas
             Usuarios VentanaUsuario = new Usuarios();
             VentanaUsuario.ShowDialog();
         }
+
+        private void btn_abm_paciente_Click(object sender, RoutedEventArgs e)
+        {
+            Pacientes ventana_paciente = new Pacientes();
+            ventana_paciente.Show();
+        }
+
+        private void btn_abmMedico_Click(object sender, RoutedEventArgs e)
+        {
+            Medicos ventana_medico = new Medicos();
+            ventana_medico.Show();
+        }
     }
 }

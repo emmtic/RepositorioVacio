@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CCM_Especialidades.cs" />
     <Compile Include="CCM_HorarioMedico.cs" />
     <Compile Include="CCM_Login.cs" />
     <Compile Include="CCM_Medico.cs" />

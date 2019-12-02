@@ -12,8 +12,8 @@
         <Label x:Name="lblBienvenido" Content="BIENVENIDO" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" Width="96" FontSize="14" FontWeight="Bold" FontFamily="Agency FB"/>
         <Button x:Name="btn_abmCitaMedica" Content="ABM CITA MEDICA" HorizontalAlignment="Left" Margin="155,35,0,0" VerticalAlignment="Top" Width="250" Height="41"/>
         <Button x:Name="btn_abmUsuario" Content="ABM USUARIOS" HorizontalAlignment="Left" Margin="155,82,0,0" VerticalAlignment="Top" Width="250" Height="41" Click="btn_abmUsuario_Click"/>
-        <Button x:Name="btn_abm_paciente" Content="ABM PACIENTES" HorizontalAlignment="Left" Margin="155,128,0,0" VerticalAlignment="Top" Width="250" Height="41"/>
-        <Button x:Name="btn_abmMedico" Content="ABM MEDICOS" HorizontalAlignment="Left" Margin="155,174,0,0" VerticalAlignment="Top" Width="250" Height="41"/>
+        <Button x:Name="btn_abm_paciente" Content="ABM PACIENTES" HorizontalAlignment="Left" Margin="155,128,0,0" VerticalAlignment="Top" Width="250" Height="41" Click="btn_abm_paciente_Click"/>
+        <Button x:Name="btn_abmMedico" Content="ABM MEDICOS" HorizontalAlignment="Left" Margin="155,174,0,0" VerticalAlignment="Top" Width="250" Height="41" Click="btn_abmMedico_Click"/>
 
     </Grid>
 </Window>
