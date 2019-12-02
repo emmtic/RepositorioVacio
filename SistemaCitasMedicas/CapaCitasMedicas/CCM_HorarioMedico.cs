@@ -22,9 +22,9 @@ namespace CapaCitasMedicas
             horarioMedicoABM.ModificarHorariosMedico(objHorario);
         }
 
-        public void Eliminar(int idhorariomed)
+        public void Eliminar(int idMedico, int idDia)
         {
-            horarioMedicoABM.EliminarHorariosMedico(idhorariomed);
+            horarioMedicoABM.EliminarHorariosMedico(idMedico, idDia);
         }
 
 

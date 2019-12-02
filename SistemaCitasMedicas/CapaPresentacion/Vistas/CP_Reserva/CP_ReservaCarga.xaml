@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion.Vistas.CP_Reserva"
         mc:Ignorable="d"
-        Title="CP_ReservaCarga" Height="450" Width="800">
+        Title="CP_ReservaCarga" Height="500" Width="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -23,21 +23,19 @@
         <Label x:Name="lblAsunto" Content="Asunto" HorizontalAlignment="Left" Margin="268,7,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtboxAsunto" HorizontalAlignment="Left" Height="23" Margin="320,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="463"/>
         <Label x:Name="lbl" Content="Paciente" HorizontalAlignment="Left" Margin="261,10,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.503,0.308"/>
-        <ComboBox x:Name="cmbboxPaciente" HorizontalAlignment="Left" Margin="320,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="463"/>
-        <Label Content="Filtro Espec." HorizontalAlignment="Left" Margin="35,10.333,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+
         <Label Content="Estado de la Cita" HorizontalAlignment="Left" Margin="534,9.667,0,0" Grid.Row="8" VerticalAlignment="Top"/>
         <Label Content="Estado de Pago" HorizontalAlignment="Left" Margin="16,7.667,0,0" Grid.Row="8" VerticalAlignment="Top"/>
         <ComboBox x:Name="cmbboxEstCita" HorizontalAlignment="Left" Margin="637,9.667,0,0" Grid.Row="8" VerticalAlignment="Top" Width="146"/>
         <ComboBox x:Name="cmbboxEstPago" HorizontalAlignment="Left" Margin="113,9.667,0,0" Grid.Row="8" VerticalAlignment="Top" Width="146"/>
-        <ComboBox x:Name="cmbboxEspec" HorizontalAlignment="Left" Margin="113,8.333,0,0" Grid.Row="2" VerticalAlignment="Top" Width="146" SelectionChanged="cmbboxEspec_SelectionChanged"/>
-        <ComboBox x:Name="cmbboxMedico" HorizontalAlignment="Left" Margin="320,10.333,0,0" Grid.Row="2" VerticalAlignment="Top" Width="463" SelectionChanged="cmbboxMedico_SelectionChanged"/>
+
         <DatePicker x:Name="dtpickerFechaCita" HorizontalAlignment="Left" Margin="113,30.667,0,0" Grid.Row="3" VerticalAlignment="Top" SelectedDateChanged="dtpickerFechaCita_SelectedDateChanged"/>
         <ComboBox x:Name="cmbboxHoraCita" HorizontalAlignment="Left" Margin="320,30.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtboxObserv" HorizontalAlignment="Left" Height="23" Margin="113,11,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="670"/>
         <TextBox x:Name="txtboxSintomas" HorizontalAlignment="Left" Height="23" Margin="113,7.667,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="670"/>
         <TextBox x:Name="txtboxMedicamnt" HorizontalAlignment="Left" Height="23" Margin="113,10,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="670"/>
-        <TextBox x:Name="txtboxPrecio" HorizontalAlignment="Left" Height="23" Margin="320,7.667,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Medico" HorizontalAlignment="Left" Margin="266,8.333,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtboxPrecio" HorizontalAlignment="Left" Height="23" Margin="320,7.667,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="PrecioDecimalValidation" />
+        <Label Content="Medico" HorizontalAlignment="Left" Margin="58,5.333,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         <Label Content="Medicamentos" HorizontalAlignment="Left" Margin="19,7,0,0" Grid.Row="6" VerticalAlignment="Top"/>
         <Label Content="Turno / Hora " HorizontalAlignment="Left" Margin="320,4.667,0,0" Grid.Row="3" VerticalAlignment="Top"/>
         <Label Content="Sintomas" HorizontalAlignment="Left" Margin="50,4.667,0,0" Grid.Row="5" VerticalAlignment="Top"/>
@@ -56,6 +54,13 @@
         <Label Content="Guia de horarios de atencion del medico&#xD;&#xA;" HorizontalAlignment="Left" Margin="498,4.667,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.618,0.472" Height="26"/>
         <Label Content="" HorizontalAlignment="Left" Margin="113,4.667,0,0" Grid.Row="3" VerticalAlignment="Top"/>
         <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="400,10.333,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+
+        <Button x:Name="btnListPac" Content="..." HorizontalAlignment="Left" Margin="751,9.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="32" VerticalContentAlignment="Center" Click="btnListPac_Click"/>
+        <Button x:Name="btnListMed" Content="..." HorizontalAlignment="Left" Margin="751,8.333,0,0" Grid.Row="2" VerticalAlignment="Top" Width="32" VerticalContentAlignment="Center" Click="btnListMed_Click"/>
+        <TextBox x:Name="txtboxMedico" HorizontalAlignment="Left" Height="20" Margin="113,11.333,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="610" TextChanged="txtboxMedico_TextChanged"/>
+        <TextBox x:Name="txtboxPaciente" HorizontalAlignment="Left" Height="20" Margin="320,11.667,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="403"/>
+
+
 
 
     </Grid>

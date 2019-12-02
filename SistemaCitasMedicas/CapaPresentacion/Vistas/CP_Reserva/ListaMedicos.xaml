@@ -1,0 +1,22 @@
+﻿<Window x:Class="CapaPresentacion.Vistas.CP_Reserva.ListaMedicos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CapaPresentacion.Vistas.CP_Reserva"
+        mc:Ignorable="d"
+        Title="ListaMedicos" Height="500" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="dtgridMedicos" HorizontalAlignment="Left" Height="295" Margin="10,9.333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="773" SelectionChanged="dtgridMedicos_SelectionChanged"/>
+        <TextBox x:Name="txtboxMatmed" HorizontalAlignment="Left" Height="23" Margin="120,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="145" TextChanged="txtboxMatmed_TextChanged"/>
+        <Label Content="Seleccionado:" HorizontalAlignment="Left" Margin="13,131,0,0" VerticalAlignment="Top" FontWeight="Medium" Grid.RowSpan="2"/>
+        <Button x:Name="btnAgregarMed" Content="Agregar" HorizontalAlignment="Left" Margin="708,136,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregarMed_Click" Grid.RowSpan="2"/>
+        <Label Content="Ingrese Matricula:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="105"/>
+        <Label Content="Seleccione un Medico de la grilla para agregar" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtblockMedico" HorizontalAlignment="Left" Margin="102,136,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="584" FontWeight="Medium"/>
+    </Grid>
+</Window>

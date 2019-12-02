@@ -36,15 +36,17 @@ namespace CapaPresentacion.Vistas.CP_Reserva
         {
             this.listReservasAll = new List<Reserva>();
             CargaDataGrid();
-            txtboxFiltro.Text = "";
+            txtboxMatmed.Text = txtboxDnipac.Text = txtboxUsu.Text = "";
+            txtboxMatmed.IsEnabled = txtboxDnipac.IsEnabled = txtboxUsu.IsEnabled = false;
             dtpickerFiltro.IsEnabled = false;
+            dtgridRegistrosCita.IsReadOnly = true;
         }
 
         public void CargaDataGrid()
         {
             try
             {
-                this.listReservasAll = reservaCCM.ListaReservas_All();
+                this.listReservasAll = this.listReservasFiltros = reservaCCM.ListaReservas_All(); //cargo la lista reserva y la lista q sera filtrada
                 dtgridRegistrosCita.ItemsSource = this.listReservasAll;
 
             }
@@ -102,26 +104,115 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
         }
 
-        private void txtboxFiltro_TextChanged(object sender, TextChangedEventArgs e)
+        private void rdBtnFiltroEnt_Checked(object sender, RoutedEventArgs e)
         {
-            if (this.listReservasAll != null) //verifica que exista reservas creadas
+            if (rdBtnDnipac.IsChecked == true)
             {
-                if (txtboxFiltro.Text == "") //(Preferentemente iniciar el txtbox de busqueda vacio) Ojo! si le agrego un placeholder deberia ir aqui tambien con un || para que cargue desde el principio ya que estos textbox son los que inician primero (initializ..) 
-                {                           //y mas el cambio de tener un texto cargado lo activaria primero y puede no haber cargado la lista todavia y abajo empieza a buscar en una lista NULA y da error
+                txtboxDnipac.IsEnabled = true;
+                txtboxDnipac.Focus();
+            }
+            else
+            {
+                txtboxDnipac.Text = "";
+                txtboxDnipac.IsEnabled = false;
+            }
+
+            if (rdBtnMatmed.IsChecked == true)
+            {
+                txtboxMatmed.IsEnabled = true;
+                txtboxMatmed.Focus();
+            }
+            else
+            {
+                txtboxMatmed.Text = "";
+                txtboxMatmed.IsEnabled = false;
+            }
+
+            if (rdBtnUsu.IsChecked == true)
+            {
+                txtboxUsu.IsEnabled = true;
+                txtboxUsu.Focus();
+            }
+            else
+            {
+                txtboxUsu.Text = "";
+                txtboxUsu.IsEnabled = false;
+            }
+        }
+
+
+
+        private void txtboxDnipac_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+
+            if (this.listReservasAll != null)
+            {
+                if (txtboxDnipac.Text == "")
+                {
+                    dtgridRegistrosCita.ItemsSource = null;
                     dtgridRegistrosCita.ItemsSource = this.listReservasAll;
                     dtpickerFiltro.IsEnabled = false;
                 }
                 else
                 {
                     dtgridRegistrosCita.ItemsSource = null;
-                    this.listReservasFiltros = this.listReservasAll.FindAll(x => x.DniPaciente.Contains(txtboxFiltro.Text.Replace(" ", "")) || x.Matricula.Contains(txtboxFiltro.Text.Replace(" ", "")) || x.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))); //Arreglar || x.Usuario.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))
+                    this.listReservasFiltros = this.listReservasAll.FindAll(x => x.DniPaciente.Contains(txtboxDnipac.Text.Replace(" ", ""))); //Arreglar || x.Usuario.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))
                     dtgridRegistrosCita.ItemsSource = this.listReservasFiltros;
                     dtpickerFiltro.IsEnabled = true;
-                    if (dtpickerFiltro.SelectedDate != null) filtradoFecha(); //la llamo aqui tambien al filtrado xq cuando cambie la seleccion del txtbox se actualizara el filtro de la fecha seleccionada actual, probar si le saco, se pierde la animacion
+                    if (dtpickerFiltro.SelectedDate != null) filtradoFecha();
                 }
             }
-
         }
+
+        private void txtboxMatmed_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+
+            if (this.listReservasAll != null)
+            {
+                if (txtboxMatmed.Text == "")
+                {
+                    dtgridRegistrosCita.ItemsSource = null;
+                    dtgridRegistrosCita.ItemsSource = this.listReservasAll;
+                    dtpickerFiltro.IsEnabled = false;
+                }
+                else
+                {
+                    dtgridRegistrosCita.ItemsSource = null;
+                    this.listReservasFiltros = this.listReservasAll.FindAll(x => x.Matricula.Contains(txtboxMatmed.Text.Replace(" ", ""))); //Arreglar || x.Usuario.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))
+                    dtgridRegistrosCita.ItemsSource = this.listReservasFiltros;
+                    dtpickerFiltro.IsEnabled = true;
+                    if (dtpickerFiltro.SelectedDate != null) filtradoFecha();
+                }
+            }
+        }
+
+        private void txtboxUsu_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+
+            if (this.listReservasAll != null)
+            {
+                if (txtboxUsu.Text == "")
+                {
+                    dtgridRegistrosCita.ItemsSource = null;
+                    dtgridRegistrosCita.ItemsSource = this.listReservasAll;
+                    dtpickerFiltro.IsEnabled = false;
+                }
+                else
+                {
+                    dtgridRegistrosCita.ItemsSource = null;
+                    this.listReservasFiltros = this.listReservasAll.FindAll(x => x.NombreUsuario.Contains(txtboxUsu.Text.Replace(" ", ""))); //Arreglar || x.Usuario.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))
+                    dtgridRegistrosCita.ItemsSource = this.listReservasFiltros;
+                    dtpickerFiltro.IsEnabled = true;
+                    if (dtpickerFiltro.SelectedDate != null) filtradoFecha();
+                }
+            }
+        }
+
+
+
 
         private void dtpickerFiltro_SelectedDateChanged(object sender, SelectionChangedEventArgs args)
         {
@@ -153,8 +244,9 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                 }
                 else if (rdBtnTodos.IsChecked == true)
                 {
-                    dtgridRegistrosCita.ItemsSource = null;
-                    this.listReservasFiltrosFechas = this.listReservasAll.FindAll(x => x.DniPaciente.Contains(txtboxFiltro.Text.Replace(" ", "")) || x.Matricula.Contains(txtboxFiltro.Text.Replace(" ", "")) || x.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))); //Arreglar || x.Usuario.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))
+                    //dtgridRegistrosCita.ItemsSource = null;
+                    //this.listReservasFiltrosFechas = this.listReservasAll.FindAll(x => x.DniPaciente.Contains(txtboxFiltro.Text.Replace(" ", "")) || x.Matricula.Contains(txtboxFiltro.Text.Replace(" ", "")) || x.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))); //Arreglar || x.Usuario.NombreUsuario.Contains(txtboxFiltro.Text.Replace(" ", ""))
+                    this.listReservasFiltrosFechas = this.listReservasFiltros;
                     dtgridRegistrosCita.ItemsSource = this.listReservasFiltrosFechas;
                 }
             }

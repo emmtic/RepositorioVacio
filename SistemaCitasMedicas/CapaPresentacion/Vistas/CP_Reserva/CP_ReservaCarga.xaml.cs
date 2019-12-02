@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -86,25 +87,10 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
         private void DatosParaIniciar() //cargo los combobox para iniciar
         {
-            cmbboxEspec.Items.Add("TODAS");
-            for (int i = 0; i < this.listEspec.Count; i++)
-            {
-                cmbboxEspec.Items.Add(this.listEspec[i]);
-            }
-
             cmbboxEstPago.ItemsSource = this.listEstadoPagos;
             cmbboxEstCita.ItemsSource = this.listEstadoCitas;
-
-            for (int i = 0; i < this.listPacientes.Count; i++) //cargare los pacientes y medicos con las funciones que hice FormatoPac y FormatoMed para cambiarle su formato
-            {
-                cmbboxPaciente.Items.Add(FormatoPac(listPacientes[i].id_paciente, listPacientes[i].apellido, listPacientes[i].nombre, listPacientes[i].dni));
-            }
-
-            for (int i = 0; i < this.listMedicos.Count; i++)
-            {
-                cmbboxMedico.Items.Add(FormatoMed(listMedicos[i].id_medico, listMedicos[i].apellido, listMedicos[i].nombre, listMedicos[i].matricula, listMedicos[i].especialidad));
-            }
-
+            txtboxPaciente.IsReadOnly = true;
+            txtboxMedico.IsReadOnly = true;
             dtpickerFechaCita.IsEnabled = false; //dtpicker deshabilitado al inicio
         }
 
@@ -121,8 +107,8 @@ namespace CapaPresentacion.Vistas.CP_Reserva
         private void CargaFormMod() //Carga el formulario de la vista con los valores traidos desde la ventana para modificar
         {
             txtboxAsunto.Text = this.recReservaMod.AsuntoCita;
-            cmbboxPaciente.Text = FormatoPac(recReservaMod.IdPaciente, recReservaMod.ApellidoPaciente, recReservaMod.NombrePaciente, recReservaMod.DniPaciente);
-            cmbboxMedico.Text = FormatoMed(recReservaMod.IdMedico, recReservaMod.ApellidoMedico, recReservaMod.NombreMedico, recReservaMod.Matricula, recReservaMod.Especialidad);
+            txtboxPaciente.Text = FormatoPac(recReservaMod.IdPaciente, recReservaMod.ApellidoPaciente, recReservaMod.NombrePaciente, recReservaMod.DniPaciente);
+            txtboxMedico.Text = FormatoMed(recReservaMod.IdMedico, recReservaMod.ApellidoMedico, recReservaMod.NombreMedico, recReservaMod.Matricula, recReservaMod.Especialidad);
             dtpickerFechaCita.Text = this.recReservaMod.FechaCita;
             cmbboxHoraCita.Text = this.recReservaMod.HoraCita;
             txtboxObserv.Text = this.recReservaMod.Observaciones;
@@ -139,12 +125,11 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             Reserva oreserva = new Reserva();
             oreserva.AsuntoCita = txtboxAsunto.Text;
 
-            string[] datos_PacienteSelec = cmbboxPaciente.Text.Replace(" ", "").Split('-');
-            oreserva.IdPaciente = Convert.ToInt32(datos_PacienteSelec[0]); //ATENCION
+            string[] datoPaciente = txtboxPaciente.Text.Replace(" ", "").Split('-');
+            oreserva.IdPaciente = Convert.ToInt32(datoPaciente[1]);
 
-            string[] datos_MedicSelec = cmbboxMedico.Text.Replace(" ", "").Split('-');
-            oreserva.IdMedico = Convert.ToInt32(datos_MedicSelec[0]); //ATENCION 
-
+            string[] datoMedico = txtboxPaciente.Text.Replace(" ", "").Split('-');
+            oreserva.IdMedico = Convert.ToInt32(datoMedico[1]);
             oreserva.FechaCita = dtpickerFechaCita.SelectedDate.Value.ToString("yyyy-MM-dd"); //lo transformo a FORMATO DE BASE DATOS para que el string sea facil de manejar para el orden
             oreserva.HoraCita = cmbboxHoraCita.Text;
             oreserva.Observaciones = txtboxObserv.Text;
@@ -153,7 +138,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             oreserva.Enfermedad = txtboxEnfermedad.Text;
             oreserva.EstadoCita = cmbboxEstCita.Text; //this.listEstadoCitas.Find(x => x.Estado == cmbboxEstCita.Text).IdEstadoCita; //ATENCION
             oreserva.EstadoPago = cmbboxEstPago.Text; //this.listEstadoPagos.Find(x => x.Estado == cmbboxEstPago.Text).IdEstadoPago; //ATENCION
-            oreserva.Precio = Convert.ToDecimal(txtboxPrecio.Text);
+            oreserva.Precio = Convert.ToDecimal(txtboxPrecio.Text.Replace(".", ","));
 
             return oreserva;
         }
@@ -208,7 +193,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             }
         }
 
-        private void cmbboxMedico_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void txtboxMedico_TextChanged(object sender, TextChangedEventArgs e)
         {
             dtpickerFechaCita.IsEnabled = true; //habilita el elemento dtpickerFechaCita
             PreparaDatepicker();
@@ -216,43 +201,24 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             cmbboxHoraCita.Items.Clear();     //limpia los items en cada cambio de seleccion
             lstBoxHsAtencion.Items.Clear();   //limpia los items en cada cambio de seleccion
 
-            if (dtpickerFechaCita.SelectedDate != null && cmbboxMedico.SelectedItem != null) logicaTurnosDisponibles();
+            if (dtpickerFechaCita.SelectedDate != null && txtboxMedico.Text != null) logicaTurnosDisponibles();
 
-            if (cmbboxMedico.SelectedItem != null) CargalstBoxHsAtencion();
+            if (txtboxMedico.Text != null) CargalstBoxHsAtencion();
         }
 
         private void dtpickerFechaCita_SelectedDateChanged(object sender, SelectionChangedEventArgs args)
         {
-            if (cmbboxMedico.Text != "") logicaTurnosDisponibles();//para controlar que el combobox no este vacio
+            if (txtboxMedico.Text != "") logicaTurnosDisponibles();//para controlar que el combobox no este vacio
             //else MessageBox.Show("Seleccione un medico"); //mensaje de control por las dudas quedaba vacio
         }
-
-        private void cmbboxEspec_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            cmbboxMedico.ItemsSource = null;
-            cmbboxMedico.Items.Clear();
-            for (int i = 0; i < listMedicos.Count; i++)
-            {
-                if (cmbboxEspec.SelectedItem.ToString().Replace(" ", "") == "TODAS")
-                {
-                    cmbboxMedico.Items.Add(FormatoMed(listMedicos[i].id_medico, listMedicos[i].apellido, listMedicos[i].nombre, listMedicos[i].matricula, listMedicos[i].especialidad));
-                }
-                else if (cmbboxEspec.SelectedItem.ToString().Replace(" ", "") == this.listMedicos[i].especialidad)
-                {
-                    cmbboxMedico.Items.Add(FormatoMed(listMedicos[i].id_medico, listMedicos[i].apellido, listMedicos[i].nombre, listMedicos[i].matricula, listMedicos[i].especialidad));
-                }
-            }
-
-        }
-
 
         private void logicaTurnosDisponibles()
         {
             //MessageBox.Show(cmbboxMedico.Text); Para controlar los eventos
             DateTime dtFechaSelected = dtpickerFechaCita.SelectedDate.Value;
             string fechaSelected = dtpickerFechaCita.SelectedDate.Value.ToString("yyyy-MM-dd");
-            string[] datos_MedicSelec = cmbboxMedico.SelectedItem.ToString().Replace(" ", "").Split('-');
-            int idMedSelec = Convert.ToInt32(datos_MedicSelec[0]);
+            string[] datos_MedicSelec = txtboxMedico.Text.Replace(" ", "").Split('-');
+            int idMedSelec = Convert.ToInt32(datos_MedicSelec[1]);
             bool activarDia = false;
             List<string> listHorarioToday = new List<string>();
             List<string> turnosAvista = new List<string>();
@@ -343,14 +309,14 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
         private void CargalstBoxHsAtencion() //Para mostrar en el listbox los horarios de atencion del medico y tener una referencia 
         {
-            if (cmbboxMedico.SelectedItem != null)
+            if (txtboxMedico.Text != null)
             {
                 lstBoxHsAtencion.Items.Clear();
-                string[] datos_MedicSelec = cmbboxMedico.SelectedItem.ToString().Replace(" ", "").Split('-');
+                string[] datos_MedicSelec = txtboxMedico.Text.Replace(" ", "").Split('-');
 
                 for (int i = 0; i < this.listHorariosMedicos.Count; i++)
                 {
-                    if (this.listHorariosMedicos[i].IdMedico == Convert.ToInt32(datos_MedicSelec[0])) lstBoxHsAtencion.Items.Add(listHorariosMedicos[i].ToString());
+                    if (this.listHorariosMedicos[i].IdMedico == Convert.ToInt32(datos_MedicSelec[1])) lstBoxHsAtencion.Items.Add(listHorariosMedicos[i].ToString());
                 }
             }
             //else{MessageBox.Show("Seleccione un medico");} //para controlar cuando quedaba vacio en los lapsos de cambio de especialidades
@@ -359,33 +325,30 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
         private void txtboxFiltroDni_TextChanged(object sender, TextChangedEventArgs e) //Para el filtro del Dni
         {
-            List<Paciente> lstauxPac = null;
+            //List<Paciente> lstauxPac = null;
             if (this.listPacientes != null)
             {
                 if (txtboxFiltroDni.Text == "") //(Preferentemente iniciar los textbox de busqueda vacios) Ojo! si le agrego un placeholder deberia ir aqui tambien con un || para que cargue desde el principio ya que estos textbox son los que inician primero (initializ..) y mas el cambio de tener
                 {                                 // un texto cargado lo activaria primero y puede no haber cargado la lista todavia y abajo empieza a buscar en una lista NULA y da error
-                    cmbboxPaciente.ItemsSource = null; //en los combobox hay que limpiarlos
-                    cmbboxPaciente.Items.Clear();
-                    for (int i = 0; i < this.listPacientes.Count; i++)
-                    {
-                        cmbboxPaciente.Items.Add(FormatoPac(listPacientes[i].id_paciente, listPacientes[i].apellido, listPacientes[i].nombre, listPacientes[i].dni));
-                    }
+                    txtboxPaciente.Text = "";
                 }
                 else
                 {
-                    cmbboxPaciente.ItemsSource = null;
-                    cmbboxPaciente.Items.Clear();
-                    lstauxPac = this.listPacientes.FindAll(x => x.dni.Contains(txtboxFiltroDni.Text.Replace(" ", "")) || x.apellido.Contains(txtboxFiltroDni.Text.Replace(" ", "")));
-
-                    for (int i = 0; i < lstauxPac.Count; i++)
-                    {
-                        cmbboxPaciente.Items.Add(FormatoPac(lstauxPac[i].id_paciente, lstauxPac[i].apellido, lstauxPac[i].nombre, lstauxPac[i].dni));
-                    }
-
-                    if (lstauxPac.Count > 0) cmbboxPaciente.SelectedIndex = 0;
+                    Paciente oPac = listPacientes.Find(x => x.dni.Contains(txtboxFiltroDni.Text.Replace(" ", "")) || x.apellido.Contains(txtboxFiltroDni.Text.Replace(" ", "")));
+                    if (oPac != null) txtboxPaciente.Text = FormatoPac(oPac.id_paciente, oPac.apellido, oPac.nombre, oPac.dni);
+                    else txtboxPaciente.Text = "";
                 }
             }
 
+        }
+
+        private void PrecioDecimalValidation(object sender, TextCompositionEventArgs e)
+        {
+            var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+            if (regex.IsMatch(e.Text) && !(e.Text == "." && ((TextBox)sender).Text.Contains(e.Text)))
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -396,7 +359,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
         private bool VerificarVacios()
         {
             bool completos = true;
-            if (txtboxAsunto.Text == "" || cmbboxPaciente.Text == "" || cmbboxMedico.Text == "" ||
+            if (txtboxAsunto.Text == "" || txtboxPaciente.Text == "" || txtboxMedico.Text == "" ||
                 dtpickerFechaCita.SelectedDate == null || cmbboxHoraCita.Text == "" ||
                 txtboxObserv.Text == "" || txtboxSintomas.Text == "" || txtboxEnfermedad.Text == "" ||
                 txtboxMedicamnt.Text == "" || txtboxPrecio.Text == "" || cmbboxEstPago.Text == "" ||
@@ -410,11 +373,33 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
         private string FormatoPac(int id, string apellido, string nombre, string dni) //Para armar las cadenas de string para la presentacion de esta ventana en el combobox sea paciente
         {
-            return $"{id}- Paciente: {apellido} {nombre}, DNI: {dni}";
+            return $"Paciente: {apellido} {nombre}, DNI: {dni}, Cod-{id}";
         }
         private string FormatoMed(int id, string apellido, string nombre, string medMatric, string medEspec) //Para armar las cadenas de string para la presentacion de esta ventana en el combobox sea medico
         {
-            return $"{id}- Medico: {apellido} {nombre}, Matricula: {medMatric}, Especialidad: {medEspec}";
+            return $"{apellido} {nombre}, esp.: {medEspec}, mat.: {medMatric}, Cod-{id}";
+        }
+
+        /*private int getIdFormatoPacMed(string cadena)
+        {
+            string[] datos_PersonaSelec = cadena.Replace(" ", "").Split('-');
+            return Convert.ToInt32(datos_PersonaSelec[1]);
+           
+        }*/
+
+        private void btnListPac_Click(object sender, RoutedEventArgs e)
+        {
+            txtboxFiltroDni.Text = "";
+            ListaPacientes ventanaListaPac = new ListaPacientes(this.listPacientes);
+            ventanaListaPac.ShowDialog();
+            this.txtboxPaciente.Text = ventanaListaPac.txtblockPaciente.Text;
+        }
+
+        private void btnListMed_Click(object sender, RoutedEventArgs e)
+        {
+            ListaMedicos ventanaListaMed = new ListaMedicos(this.listMedicos);
+            ventanaListaMed.ShowDialog();
+            this.txtboxMedico.Text = ventanaListaMed.txtblockMedico.Text;
         }
 
     }

@@ -43,9 +43,9 @@ namespace CapaDatos
         public void ModificarHorariosMedico(HorarioMedico objHorario)
         {
             string strQuery = "UPDATE horariomedico " +  //fijarse bien el nombre de la tabla
-                "SET id_medico=@idMedico, id_dia=@idDia, horainicio_a=@horaInicioA, horafin_a=@horaFinA, " +
+                "SET horainicio_a=@horaInicioA, horafin_a=@horaFinA, " +
                 "horainicio_b=@horaInicioB, horafin_b=@horaFinB, duracion_turnos=@duracionTurnos " +
-                "WHERE id_horariomedico=@idhorariomedico;";
+                "WHERE id_dia=@idDia AND id_medico=@idMedico;";
 
 
             CD_Conexion conexion = new CD_Conexion(); //¿este puede ir afuera del metodo como mysql.comando tambien PERO el cerrar la conexion cuando termine la funcion y no en otra funcion puede ser problema porq son parte de la misma instancia?
@@ -54,7 +54,7 @@ namespace CapaDatos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = strQuery;
 
-            comando.Parameters.Add("@idhorariomedico", MySqlDbType.Int32).Value = objHorario.IdHorarioMedico;
+            //comando.Parameters.Add("@idhorariomedico", MySqlDbType.Int32).Value = objHorario.IdHorarioMedico;
             comando.Parameters.Add("@idMedico", MySqlDbType.Int32).Value = objHorario.IdMedico;
             comando.Parameters.Add("@idDia", MySqlDbType.Int32).Value = Convert.ToInt32(objHorario.Dia);
             comando.Parameters.Add("@horaInicioA", MySqlDbType.VarChar).Value = objHorario.HoraInicio_A;
@@ -68,16 +68,17 @@ namespace CapaDatos
             conexion.CerrarConexion();
         }
 
-        public void EliminarHorariosMedico(int idhorariomedico)
+        public void EliminarHorariosMedico(int idMedico, int idDia)
         {
-            string strQuery = "DELETE FROM horariomedico WHERE id_horariomedico=@idhorariomedico;"; //fijarse bien el nombre de la tabla
+            string strQuery = "DELETE FROM horariomedico WHERE id_medico=@idMedico AND id_dia=@idDia;"; //fijarse bien el nombre de la tabla
 
             CD_Conexion conexion = new CD_Conexion(); //¿este puede ir afuera del metodo como mysql.comando tambien PERO el cerrar la conexion cuando termine la funcion y no en otra funcion puede ser problema porq son parte de la misma instancia?
 
             MySqlCommand comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = strQuery;
-            comando.Parameters.Add("@idhorariomedico", MySqlDbType.Int32).Value = idhorariomedico;
+            comando.Parameters.Add("@idMedico", MySqlDbType.Int32).Value = idMedico;
+            comando.Parameters.Add("@idDia", MySqlDbType.Int32).Value = idDia;
             comando.ExecuteNonQuery();
             conexion.CerrarConexion();
         }
@@ -85,7 +86,7 @@ namespace CapaDatos
         //metodos con el SELECT
         public List<HorarioMedico> GetlistHorariosMedicos()
         {
-            string strQuery = "SELECT * FROM horariomedico;";  //Hacer inner join para traer el dia?
+            string strQuery = "SELECT * FROM horariomedico ORDER BY id_medico ASC,id_dia ASC;";  //Hacer inner join para traer el dia?
             List<HorarioMedico> listHorario = new List<HorarioMedico>();
             HorarioMedico objHorario;
 
@@ -126,7 +127,7 @@ namespace CapaDatos
 
         public List<HorarioMedico> GetlistHorariosByIdMed(int idMedico)
         {
-            string strQuery = "SELECT * FROM horariomedico WHERE id_medico=@idMedico;";  //Hacer inner join para traer el dia?
+            string strQuery = "SELECT * FROM horariomedico WHERE id_medico=@idMedico ORDER BY id_dia ASC;";  //Hacer inner join para traer el dia?
             List<HorarioMedico> listHorario = new List<HorarioMedico>();
             HorarioMedico objHorario;
 

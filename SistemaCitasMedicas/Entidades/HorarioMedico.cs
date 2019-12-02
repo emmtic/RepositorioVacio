@@ -56,13 +56,15 @@ namespace Entidades
             horas = horaenMin / 60;
             minutos = (((float)horaenMin / 60) - horas) * 60; //aplicando matematica (distribucion) igual a (float)horaenMin - (horas*60)
 
-            if (minutos < 10)
+            if (horas < 10)
             {
-                return $"{horas}:0{minutos}";
+                if (minutos < 10) return $"0{horas}:0{minutos}";
+                else return $"0{horas}:{minutos}";
             }
             else
             {
-                return $"{horas}:{minutos}";
+                if (minutos < 10) return $"{horas}:0{minutos}";
+                else return $"{horas}:{minutos}";
             }
         }
 

@@ -68,8 +68,17 @@
     <Compile Include="Vistas\CP_Reserva\CP_ReservaRegistros.xaml.cs">
       <DependentUpon>CP_ReservaRegistros.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\CP_Reserva\ListaMedicos.xaml.cs">
+      <DependentUpon>ListaMedicos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\CP_Reserva\ListaPacientes.xaml.cs">
+      <DependentUpon>ListaPacientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Especialidades_Medicos.xaml.cs">
       <DependentUpon>Especialidades_Medicos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\HorariosMedicos.xaml.cs">
+      <DependentUpon>HorariosMedicos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Medicos.xaml.cs">
       <DependentUpon>Medicos.xaml</DependentUpon>
@@ -100,9 +109,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vistas\CP_Reserva\ListaMedicos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\CP_Reserva\ListaPacientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\Especialidades_Medicos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\HorariosMedicos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Medicos.xaml">
       <Generator>MSBuild:Compile</Generator>

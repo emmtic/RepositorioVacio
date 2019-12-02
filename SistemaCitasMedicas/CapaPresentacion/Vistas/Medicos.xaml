@@ -45,7 +45,7 @@
         <ComboBox x:Name="cmb_especialidad" HorizontalAlignment="Left" Margin="789,408,0,0" VerticalAlignment="Top" Width="152"/>
         <Button x:Name="btn_buscar" Content="Buscar" HorizontalAlignment="Left" Margin="588,58,0,0" VerticalAlignment="Top" Width="50" Click="btn_buscar_Click"/>
         <Label x:Name="lbl_buscar" Content="Buscar Medicos:" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_cargar_horarios_medico" Content="HORARIOS MEDICOS" HorizontalAlignment="Left" Margin="545,473,0,15" Width="225"/>
+        <Button x:Name="btn_cargar_horarios_medico" Content="HORARIOS MEDICOS" HorizontalAlignment="Left" Margin="545,473,0,15" Width="225" Click="btn_cargar_horarios_medico_Click"/>
         <TextBox x:Name="txt_buscar" HorizontalAlignment="Left" Height="23" Margin="119,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
         <Button x:Name="btn_cargar_especialidades_medicos" Content="+ Especialidades" HorizontalAlignment="Left" Margin="946,408,0,0" VerticalAlignment="Top" Width="108" Click="btn_cargar_especialidades_medicos_Click"/>
         <ComboBox x:Name="cmb_seleccionar_atributo" HorizontalAlignment="Left" Margin="398,58,0,0" VerticalAlignment="Top" Width="161"/>

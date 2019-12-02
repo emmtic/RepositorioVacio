@@ -18,7 +18,6 @@ namespace CapaPresentacion.Vistas
             LlenarCMBAtributos();
             LlenarComboboxEspecialidades();
             LimpiarCampos();
-            ValidarCampos();
         }
         CCM_Medico ObjetoCCM = new CCM_Medico();
         
@@ -281,6 +280,26 @@ namespace CapaPresentacion.Vistas
             }
             else
                 return true;
+        }
+
+        private void btn_cargar_horarios_medico_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtg_verMedicos.SelectedCells.Count > 0)
+            {
+                Medico MedicoMod = (Medico)dtg_verMedicos.SelectedItem;
+                idMedico = MedicoMod.id_medico.ToString();
+                
+                if (idMedico != null)
+                {
+                    HorariosMedicos ventanaHM = new HorariosMedicos(int.Parse(idMedico));
+                    ventanaHM.ShowDialog();
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un medico para gestionar horarios");
+            }
         }
     }
 

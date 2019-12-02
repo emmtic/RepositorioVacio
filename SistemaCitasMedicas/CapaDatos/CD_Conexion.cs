@@ -5,7 +5,7 @@ namespace CapaDatos
 {
     public class CD_Conexion
     {
-        private MySqlConnection Conexion = new MySqlConnection("Server=localhost; DataBase=libromedico; User=root; Password=a1s2d3f4?");
+        private MySqlConnection Conexion = new MySqlConnection("Server=localhost; DataBase=pruebalibromedico; User=root; Password=mysqle123");
         public MySqlConnection AbrirConexion()
         {
             if (Conexion.State == ConnectionState.Closed)
