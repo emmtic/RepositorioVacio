@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Entidades;
+using Entidades.Cache;
 using CapaCitasMedicas;
+
 
 namespace CapaPresentacion.Vistas.CP_Reserva
 {
@@ -103,6 +105,29 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
             dtpickerFechaCita.DisplayDateEnd = DateTime.Today.AddDays(limDiasTurno);
         }
+        
+        private string FormatoPac(int id, string apellido, string nombre, string dni) //Para armar las cadenas de string para la presentacion de esta ventana en el combobox sea paciente
+        {
+            return $"Paciente: {apellido} {nombre}, DNI: {dni}, Cod-{id}";
+        }
+        private string FormatoMed(int id, string apellido, string nombre, string medMatric, string medEspec) //Para armar las cadenas de string para la presentacion de esta ventana en el combobox sea medico
+        {
+            return $"{apellido} {nombre}, esp.: {medEspec}, mat.: {medMatric}, Cod-{id}";
+        }
+
+        private void btnListPac_Click(object sender, RoutedEventArgs e)
+        {
+            txtboxFiltroDni.Text = "";
+            ListaPacientes ventanaListaPac = new ListaPacientes(this.listPacientes);
+            ventanaListaPac.ShowDialog();
+            this.txtboxPaciente.Text = ventanaListaPac.txtblockPaciente.Text;
+        }
+
+        private void btnListMed_Click(object sender, RoutedEventArgs e)
+        {
+            ListaMedicos ventanaListaMed = new ListaMedicos(this.listMedicos, txtboxMedico);
+            ventanaListaMed.ShowDialog();
+        }
 
         private void CargaFormMod() //Carga el formulario de la vista con los valores traidos desde la ventana para modificar
         {
@@ -128,7 +153,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             string[] datoPaciente = txtboxPaciente.Text.Replace(" ", "").Split('-');
             oreserva.IdPaciente = Convert.ToInt32(datoPaciente[1]);
 
-            string[] datoMedico = txtboxPaciente.Text.Replace(" ", "").Split('-');
+            string[] datoMedico = txtboxMedico.Text.Replace(" ", "").Split('-');
             oreserva.IdMedico = Convert.ToInt32(datoMedico[1]);
             oreserva.FechaCita = dtpickerFechaCita.SelectedDate.Value.ToString("yyyy-MM-dd"); //lo transformo a FORMATO DE BASE DATOS para que el string sea facil de manejar para el orden
             oreserva.HoraCita = cmbboxHoraCita.Text;
@@ -154,7 +179,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                     try
                     {    //Probando con cualquier usuario
                         Reserva oreservaNueva = RecibeDelForm();
-                        oreservaNueva.NombreUsuario = "Pedroperez"; //carga del usuario que cargó esta reserva
+                        oreservaNueva.NombreUsuario = UsuarioLoginCache.NombreUsuario; //carga del usuario que cargó esta reserva
                         oreservaNueva.FechaAltaCita = DateTime.Now;
 
                         reservaCCM.Insertar(oreservaNueva);
@@ -173,7 +198,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                     {   //Probando con cualquier usuario
                         Reserva oreservaModificada = RecibeDelForm();
                         oreservaModificada.IdReserva = this.recReservaMod.IdReserva;
-                        oreservaModificada.NombreUsuario = "Pedroperez"; //modificacion del nuevo usuario
+                        oreservaModificada.NombreUsuario = UsuarioLoginCache.NombreUsuario; //modificacion del nuevo usuario
                         oreservaModificada.FechaAltaCita = DateTime.Now;
 
                         reservaCCM.Modificar(oreservaModificada);
@@ -371,14 +396,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             return completos;
         }
 
-        private string FormatoPac(int id, string apellido, string nombre, string dni) //Para armar las cadenas de string para la presentacion de esta ventana en el combobox sea paciente
-        {
-            return $"Paciente: {apellido} {nombre}, DNI: {dni}, Cod-{id}";
-        }
-        private string FormatoMed(int id, string apellido, string nombre, string medMatric, string medEspec) //Para armar las cadenas de string para la presentacion de esta ventana en el combobox sea medico
-        {
-            return $"{apellido} {nombre}, esp.: {medEspec}, mat.: {medMatric}, Cod-{id}";
-        }
+     
 
         /*private int getIdFormatoPacMed(string cadena)
         {
@@ -387,20 +405,6 @@ namespace CapaPresentacion.Vistas.CP_Reserva
            
         }*/
 
-        private void btnListPac_Click(object sender, RoutedEventArgs e)
-        {
-            txtboxFiltroDni.Text = "";
-            ListaPacientes ventanaListaPac = new ListaPacientes(this.listPacientes);
-            ventanaListaPac.ShowDialog();
-            this.txtboxPaciente.Text = ventanaListaPac.txtblockPaciente.Text;
-        }
-
-        private void btnListMed_Click(object sender, RoutedEventArgs e)
-        {
-            ListaMedicos ventanaListaMed = new ListaMedicos(this.listMedicos);
-            ventanaListaMed.ShowDialog();
-            this.txtboxMedico.Text = ventanaListaMed.txtblockMedico.Text;
-        }
 
     }
 }

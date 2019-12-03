@@ -23,17 +23,30 @@ namespace CapaPresentacion.Vistas.CP_Reserva
     {
         private List<Medico> listMedicos = null;
         private List<Medico> lstauxMed = null;
-        public ListaMedicos(List<Medico> reclistMedicos)
+        TextBox txtboxMed = null;
+        public ListaMedicos(List<Medico> reclistMedicos, TextBox rectextboxMed)
         {
             InitializeComponent();
             this.listMedicos = reclistMedicos;
+            this.txtboxMed = rectextboxMed;
             Datosparainiciar();
+
         }
 
         private void Datosparainiciar()
         {
             txtboxMatmed.Text = "";
-            txtblockMedico.Text = "";
+            
+            if (this.txtboxMed.Text == "") //por si el textbox viene vacio o cargado por la opcion de modificar una reserva
+            {
+                txtblockMedico.Text = "";
+            }
+            else
+            {
+                txtblockMedico.Text = txtboxMed.Text;
+            }
+            
+            
             try
             {
                 dtgridMedicos.ItemsSource = this.listMedicos;
@@ -78,7 +91,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             oMed = (Medico)dtgridMedicos.SelectedItem;
             if (oMed != null)
             {
-                txtblockMedico.Text = FormatoMed(oMed.id_medico, oMed.apellido, oMed.nombre, oMed.matricula, oMed.especialidad);
+                txtboxMed.Text = txtblockMedico.Text = FormatoMed(oMed.id_medico, oMed.apellido, oMed.nombre, oMed.matricula, oMed.especialidad);
             }
         }
 
@@ -94,7 +107,16 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
         private void btnAgregarMed_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (txtblockMedico.Text != "")
+            {
+                txtboxMed.Text = txtblockMedico.Text;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un medico");
+            }
+            
         }
     }
 }
