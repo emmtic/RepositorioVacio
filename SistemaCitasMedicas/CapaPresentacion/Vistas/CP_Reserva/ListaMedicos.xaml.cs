@@ -24,6 +24,9 @@ namespace CapaPresentacion.Vistas.CP_Reserva
         private List<Medico> listMedicos = null;
         private List<Medico> lstauxMed = null;
         TextBox txtboxMed = null;
+        CCM_Especialidades oEspCCM = new CCM_Especialidades();
+        private List<Especialidades> listEspecialidades = null;
+        private List<string> listEspec = null;
         public ListaMedicos(List<Medico> reclistMedicos, TextBox rectextboxMed)
         {
             InitializeComponent();
@@ -51,11 +54,17 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             {
                 dtgridMedicos.ItemsSource = this.listMedicos;
                 dtgridMedicos.IsReadOnly = true;
+                this.listEspecialidades = oEspCCM.MostrarEspecialidades();
+
+                for (int i = 0; i < listEspecialidades.Count; i++)
+                {
+                    cmbboxEspec.Items.Add(listEspecialidades[i].especialidad);
+                }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar datagrid: " + ex);
+                MessageBox.Show("Error al cargar datos iniciales (datagrid comboboxs): " + ex);
                 throw;
             }
 
@@ -68,7 +77,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             {
                 if (txtboxMatmed.Text == "") //(Preferentemente iniciar los textbox de busqueda vacios) Ojo! si le agrego un placeholder deberia ir aqui tambien con un || para que cargue desde el principio ya que estos textbox son los que inician primero (initializ..) y mas el cambio de tener
                 {                                 // un texto cargado lo activaria primero y puede no haber cargado la lista todavia y abajo empieza a buscar en una lista NULA y da error
-                    txtblockMedico.Text = "";
+                    //txtblockMedico.Text = ""; //creo que es preferible no tocar el texblock en estas animaciones
                     dtgridMedicos.ItemsSource = null;
                     dtgridMedicos.ItemsSource = this.listMedicos;
                 }
@@ -82,6 +91,41 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                     dtgridMedicos.ItemsSource = lstauxMed;
                 }
             }
+
+        }
+
+        private void cmbboxEspec_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbboxEspec.SelectedItem != null)
+            {
+                lstauxMed = this.listMedicos.FindAll(x => x.especialidad==cmbboxEspec.SelectedItem.ToString().Replace(" ", ""));
+                dtgridMedicos.ItemsSource = null;
+                dtgridMedicos.ItemsSource = lstauxMed;
+            }
+            else
+            {
+                if (cmbboxEspec.Text == "") //(Preferentemente iniciar los textbox de busqueda vacios) Ojo! si le agrego un placeholder deberia ir aqui tambien con un || para que cargue desde el principio ya que estos textbox son los que inician primero (initializ..) y mas el cambio de tener
+                {                                 // un texto cargado lo activaria primero y puede no haber cargado la lista todavia y abajo empieza a buscar en una lista NULA y da error
+                    dtgridMedicos.ItemsSource = null;
+                    dtgridMedicos.ItemsSource = this.listMedicos;
+                }
+                else
+                {
+                    lstauxMed = this.listMedicos.FindAll(x => x.especialidad==cmbboxEspec.Text.Replace(" ", ""));
+                    if (lstauxMed.Count > 0)
+                    {
+                        dtgridMedicos.ItemsSource = null;
+                        dtgridMedicos.ItemsSource = lstauxMed;
+                    }
+                    else
+                    {
+                        dtgridMedicos.ItemsSource = null;
+                        dtgridMedicos.ItemsSource = this.listMedicos;
+                    }
+                    
+                }
+            }
+
 
         }
 

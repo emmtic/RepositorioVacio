@@ -12,11 +12,15 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="dtgridMedicos" HorizontalAlignment="Left" Height="295" Margin="10,9.333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="773" SelectionChanged="dtgridMedicos_SelectionChanged"/>
-        <TextBox x:Name="txtboxMatmed" HorizontalAlignment="Left" Height="23" Margin="120,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="145" TextChanged="txtboxMatmed_TextChanged"/>
         <Label Content="Seleccionado:" HorizontalAlignment="Left" Margin="13,131,0,0" VerticalAlignment="Top" FontWeight="Medium" Grid.RowSpan="2"/>
         <Button x:Name="btnAgregarMed" Content="Agregar" HorizontalAlignment="Left" Margin="708,136,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregarMed_Click" Grid.RowSpan="2"/>
-        <Label Content="Ingrese Matricula:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="105"/>
         <Label Content="Seleccione un Medico de la grilla para agregar" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="txtblockMedico" HorizontalAlignment="Left" Margin="102,136,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="584" FontWeight="Medium"/>
+        <TextBox x:Name="txtboxMatmed" HorizontalAlignment="Left" Height="23" Margin="136,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="120" TextChanged="txtboxMatmed_TextChanged"/>
+        <Label Content="Filtro Matricula:" HorizontalAlignment="Left" Margin="32,78,0,0" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.741,0.346"/>
+        <ComboBox x:Name="cmbboxEspec" HorizontalAlignment="Left" Margin="136,39,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" SelectionChanged="cmbboxEspec_SelectionChanged"/>
+        <Label Content="Especialidad:" HorizontalAlignment="Left" Margin="32,39,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="" HorizontalAlignment="Left" Margin="13,46,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="" HorizontalAlignment="Left" Margin="13,86,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
