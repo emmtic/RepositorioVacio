@@ -2,8 +2,8 @@
 * Cita Medica Database
 * @author Grupo 8
 */
-create database libromedico;
-use libromedico; 
+create database libromedico1;
+use libromedico1; 
 set sql_mode='';
 create table usuario (
 	id_usuario int not null auto_increment primary key,
@@ -17,7 +17,7 @@ create table usuario (
 	fecha_alta datetime
 );
 
-insert into usuario (nombre_usuario,contraseña,es_admin,es_activo,fecha_alta) value ("admin",sha1(md5("admin")),1,1,NOW());
+insert into usuario (nombre_usuario,nombre,apellido,email,contraseña,es_admin,es_activo,fecha_alta) value ("admin","Emmanuel","Gimenez","Lemmanuel.gimenez@gmail.com","admin",1,1,NOW());
 
 
 create table paciente (
@@ -33,7 +33,8 @@ create table paciente (
 	enfermedad varchar(500),
 	medicamentos varchar(500),
 	alergia varchar(500),
-	fecha_alta datetime
+	fecha_alta datetime,
+    es_activo boolean not null default 1
 );
 
 create table especialidad (
@@ -42,6 +43,8 @@ create table especialidad (
 	);
 
 insert into especialidad (especialidad) value ("ODONTOLOGIA");
+insert into especialidad (especialidad) value ("ONCOLOGIA");
+insert into especialidad (especialidad) value ("TRAUMATOLOGIA");
 
 
 create table medico (
@@ -57,10 +60,32 @@ create table medico (
 	telefono varchar(255),
 	fecha_alta datetime,
 	id_especialidad int,
+    es_activo boolean not null default 1,
 	foreign key (id_especialidad) references especialidad(id_especialidad)
 );
 
-
+create table horariomedico(
+	id_horariomedico int not null auto_increment primary key,
+	id_medico int,
+	id_dia int,
+	horainicio_a varchar(100),
+	horafin_a varchar(100),
+    horainicio_b varchar(100),
+	horafin_b varchar(100),
+    duracion_turnos int,
+	foreign key (id_dia) references dia(id_dia),
+	foreign key (id_medico) references medico(id_medico)
+);
+create table dia(
+	id_dia int not null auto_increment primary key,
+	dia varchar (50)
+);
+insert into dia (dia) values ("Monday");
+insert into dia (dia) values ("Tuesday");
+insert into dia (dia) values ("Wednesday");
+insert into dia (dia) values ("Thursday");
+insert into dia (dia) values ("Friday");
+insert into dia (dia) values ("Saturday");
 
 create table estado (
 	id_estado int not null auto_increment primary key,
@@ -80,7 +105,6 @@ create table reservacion(
 	id_reservacion int not null auto_increment primary key,
 	asunto_cita varchar(100),
 	observaciones text,
-	mensaje text,
 	fecha_cita varchar(50),
 	hora_cita varchar(50),
 	fecha_alta datetime,
@@ -92,8 +116,9 @@ create table reservacion(
 	id_medico int,
 	precio double,
 	id_pago int not null default 1,
+    id_estado int not null default 1,
+    es_activo boolean not null default 1,
 	foreign key (id_pago) references pago(id_pago),
-	id_estado int not null default 1,
 	foreign key (id_estado) references estado(id_estado),
 	foreign key (id_usuario) references usuario(id_usuario),
 	foreign key (id_paciente) references paciente(id_paciente),
