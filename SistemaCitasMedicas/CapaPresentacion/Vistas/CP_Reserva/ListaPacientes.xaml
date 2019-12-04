@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion.Vistas.CP_Reserva"
         mc:Ignorable="d"
-        Title="ListaPacientes" Height="500" Width="800">
+        Title="ListaPacientes" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="paciente.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

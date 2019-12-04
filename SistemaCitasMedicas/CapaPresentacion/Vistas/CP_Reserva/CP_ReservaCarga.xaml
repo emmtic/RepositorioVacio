@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion.Vistas.CP_Reserva"
         mc:Ignorable="d"
-        Title="CP_ReservaCarga" Height="500" Width="900">
-    <Grid>
+        Title="CP_ReservaCarga" Height="516" Width="816" ResizeMode="NoResize" HorizontalAlignment="Left" VerticalAlignment="Top" Icon="Reserva.png" WindowStartupLocation="CenterScreen" Background="#FFCCDBE8">
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition/>
@@ -20,12 +20,12 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="113,13,0,0" TextWrapping="Wrap" Text="Reserva Turno Medico" VerticalAlignment="Top"/>
-        <Label x:Name="lblAsunto" Content="Asunto" HorizontalAlignment="Left" Margin="268,7,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblAsunto" Content="Asunto" HorizontalAlignment="Left" Margin="268,7,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
         <TextBox x:Name="txtboxAsunto" HorizontalAlignment="Left" Height="23" Margin="320,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="463"/>
-        <Label x:Name="lbl" Content="Paciente" HorizontalAlignment="Left" Margin="266,7.667,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.503,0.308"/>
+        <Label x:Name="lbl" Content="Paciente" HorizontalAlignment="Left" Margin="266,7.667,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.503,0.308" FontFamily="Century Gothic"/>
 
-        <Label Content="Estado de la Cita" HorizontalAlignment="Left" Margin="534,9.667,0,0" Grid.Row="8" VerticalAlignment="Top"/>
-        <Label Content="Estado de Pago" HorizontalAlignment="Left" Margin="16,7.667,0,0" Grid.Row="8" VerticalAlignment="Top"/>
+        <Label Content="Estado de la Cita" HorizontalAlignment="Left" Margin="534,9.667,0,0" Grid.Row="8" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label Content="Estado de Pago" HorizontalAlignment="Left" Margin="16,7.667,0,0" Grid.Row="8" VerticalAlignment="Top" FontFamily="Century Gothic"/>
         <ComboBox x:Name="cmbboxEstCita" HorizontalAlignment="Left" Margin="637,9.667,0,0" Grid.Row="8" VerticalAlignment="Top" Width="146"/>
         <ComboBox x:Name="cmbboxEstPago" HorizontalAlignment="Left" Margin="113,9.667,0,0" Grid.Row="8" VerticalAlignment="Top" Width="146"/>
 
@@ -35,25 +35,25 @@
         <TextBox x:Name="txtboxSintomas" HorizontalAlignment="Left" Height="23" Margin="113,7.667,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="670"/>
         <TextBox x:Name="txtboxMedicamnt" HorizontalAlignment="Left" Height="23" Margin="113,10,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="670"/>
         <TextBox x:Name="txtboxPrecio" HorizontalAlignment="Left" Height="23" Margin="320,7.667,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="PrecioDecimalValidation" />
-        <Label Content="Medico" HorizontalAlignment="Left" Margin="58,7.333,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-        <Label Content="Medicamentos" HorizontalAlignment="Left" Margin="19,7,0,0" Grid.Row="6" VerticalAlignment="Top"/>
-        <Label Content="Turno / Hora " HorizontalAlignment="Left" Margin="320,4.667,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Label Content="Sintomas" HorizontalAlignment="Left" Margin="50,4.667,0,0" Grid.Row="5" VerticalAlignment="Top"/>
-        <Label x:Name="lblPrecio" Content="Precio" HorizontalAlignment="Left" Margin="274,4.667,0,0" Grid.Row="8" VerticalAlignment="Top"/>
-        <Label Content="Observaciones" HorizontalAlignment="Left" Margin="21,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
-        <Label Content="Fecha a reservar" HorizontalAlignment="Left" Margin="113,4.667,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Button x:Name="btnAgregarCita" Content="Agregar Cita" HorizontalAlignment="Left" Margin="211,10.333,0,0" Grid.Row="9" VerticalAlignment="Top" Width="128" Click="btnAgregarCita_Click" VerticalContentAlignment="Center"/>
+        <Label Content="Medico" HorizontalAlignment="Left" Margin="58,7.333,0,0" Grid.Row="2" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label Content="Medicamentos" HorizontalAlignment="Left" Margin="19,7,0,0" Grid.Row="6" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label Content="Turno / Hora " HorizontalAlignment="Left" Margin="320,4.667,0,0" Grid.Row="3" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label Content="Sintomas" HorizontalAlignment="Left" Margin="50,4.667,0,0" Grid.Row="5" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label x:Name="lblPrecio" Content="Precio" HorizontalAlignment="Left" Margin="274,4.667,0,0" Grid.Row="8" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label Content="Observaciones" HorizontalAlignment="Left" Margin="21,10,0,0" Grid.Row="4" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label Content="Fecha a reservar" HorizontalAlignment="Left" Margin="113,4.667,0,0" Grid.Row="3" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Button x:Name="btnAgregarCita" Content="AGREGAR CITA" HorizontalAlignment="Left" Margin="218.333,39.261,0,-44" Grid.Row="9" VerticalAlignment="Top" Width="170" Click="btnAgregarCita_Click" VerticalContentAlignment="Center" Height="45" Background="#FF141072" Foreground="White" FontFamily="Century Gothic"/>
         <TextBox x:Name="txtboxEnfermedad" HorizontalAlignment="Left" Height="23" Margin="113,9.333,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Width="670"/>
-        <Label x:Name="lblEnfermedad" Content="Enfermedades" HorizontalAlignment="Left" Margin="23,6.333,0,0" Grid.Row="7" VerticalAlignment="Top"/>
+        <Label x:Name="lblEnfermedad" Content="Enfermedades" HorizontalAlignment="Left" Margin="23,6.333,0,0" Grid.Row="7" VerticalAlignment="Top" FontFamily="Century Gothic"/>
         <TextBlock HorizontalAlignment="Left" Margin="445,9.667,0,12" Grid.Row="8" TextWrapping="Wrap" Text="$" Width="30"/>
         <ListBox x:Name="lstBoxHsAtencion" HorizontalAlignment="Left" Height="62" Margin="498,30.667,0,0" Grid.Row="3" VerticalAlignment="Top" Width="285"/>
 
 
         <TextBox x:Name="txtboxFiltroDni" HorizontalAlignment="Left" Height="23" Margin="113,10.333,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" TextChanged="txtboxFiltroDni_TextChanged"/>
-        <Label Content="Filtro Dni" HorizontalAlignment="Left" Margin="49,7.333,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="Guia de horarios de atencion del medico&#xD;&#xA;" HorizontalAlignment="Left" Margin="498,4.667,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.618,0.472" Height="26"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="113,4.667,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="400,10.333,0,0" Grid.Row="9" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+        <Label Content="Filtro Dni" HorizontalAlignment="Left" Margin="49,7.333,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label Content="Guia de horarios de atencion del medico&#xD;&#xA;" HorizontalAlignment="Left" Margin="498,4.667,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.618,0.472" Height="26" FontFamily="Century Gothic"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="113,4.667,0,0" Grid.Row="3" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Button x:Name="btnCancelar" Content="CANCELAR" HorizontalAlignment="Left" Margin="410,40.261,0,-43" Grid.Row="9" VerticalAlignment="Top" Width="170" Click="btnCancelar_Click" Height="43" Background="#FFCF3535" Foreground="White" FontFamily="Century Gothic"/>
 
         <Button x:Name="btnListPac" Content="Agregar" HorizontalAlignment="Left" Margin="723,10.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Click="btnListPac_Click" Height="23"/>
         <Button x:Name="btnListMed" Content="Agregar" HorizontalAlignment="Left" Margin="723,11.333,0,0" Grid.Row="2" VerticalAlignment="Top" Width="60" VerticalContentAlignment="Center" Click="btnListMed_Click" Height="23"/>

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion.Vistas"
         mc:Ignorable="d"
-        Title="Especialidades Medicos" Height="370" Width="500">
+        Title="ESPECIALIDADES MEDICAS" Height="380" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Century Gothic" Background="#FFCCDBE8" Foreground="White" Icon="comprobado.png">
     <Grid>
-        <Label x:Name="lbl_especialidad" Content="Especialidad:" HorizontalAlignment="Left" Margin="41,27,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dtg_verEspecialidades" HorizontalAlignment="Left" Height="186" Margin="41,74,0,0" VerticalAlignment="Top" Width="408"/>
-        <TextBox x:Name="txt_especialidad" HorizontalAlignment="Left" Height="23" Margin="124,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
-        <Button x:Name="btn_guardar_especialidad" Content="GUARDAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="281,21,0,0" VerticalAlignment="Top" Width="168" Height="38" Click="btn_guardar_especialidad_Click"/>
-        <Button x:Name="btn_modificar_especialidad" Content="EDITAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="41,287,0,0" VerticalAlignment="Top" Width="162" Height="44" Click="btn_modificar_especialidad_Click"/>
-        <Button x:Name="btn_borrar_especialidad" Content="BORRAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="289,287,0,0" VerticalAlignment="Top" Width="160" Height="44" Click="btn_borrar_especialidad_Click"/>
+        <Label x:Name="lbl_especialidad" Content="Especialidad:" HorizontalAlignment="Left" Margin="48.708,27.643,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dtg_verEspecialidades" HorizontalAlignment="Left" Height="200" Margin="48.708,74,0,0" VerticalAlignment="Top" Width="400" Background="#FFB3BFEA"/>
+        <TextBox x:Name="txt_especialidad" HorizontalAlignment="Left" Height="23" Margin="141.915,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126.793"/>
+        <Button x:Name="btn_guardar_especialidad" Content="GUARDAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="278.708,24,0,0" VerticalAlignment="Top" Width="170" Height="45" Click="btn_guardar_especialidad_Click" Background="#FF141072" Foreground="White"/>
+        <Button x:Name="btn_modificar_especialidad" Content="EDITAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="48.708,279,0,0" VerticalAlignment="Top" Width="170" Height="45" Click="btn_modificar_especialidad_Click" Background="#FF25721D" Foreground="White"/>
+        <Button x:Name="btn_borrar_especialidad" Content="BORRAR ESPECIALIDAD" HorizontalAlignment="Left" Margin="278.708,279,0,0" VerticalAlignment="Top" Width="170" Height="45" Click="btn_borrar_especialidad_Click" Background="#FFCF3535" Foreground="White"/>
 
     </Grid>
 </Window>

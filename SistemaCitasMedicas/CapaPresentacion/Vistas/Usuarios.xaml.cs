@@ -30,7 +30,8 @@ namespace CapaPresentacion.Vistas
         {
             // INSERTAR
             Usuario UsuarioAdd = new Usuario();
-            if (Editar==false) {
+            if (Editar == false)
+            {
                 try
                 {
                     UsuarioAdd.NombreUsuario = txt_nombreUsuario.Text;
@@ -57,18 +58,23 @@ namespace CapaPresentacion.Vistas
                         UsuarioAdd.EsActivo = false;
                     }
                     UsuarioAdd.FechaDeAlta = dt_fechaAlta.SelectedDate.Value;
+                    bool valido = new Entidades.Helps.ValidacionDatos(UsuarioAdd).Validar();
 
-                    ObjetoCCM.InsertarUsuarios(UsuarioAdd);
-                    MessageBox.Show("El Registro se Ingreso Satisfactoriamente");
-                    MostrarUsuarios();
-                    LimpiarCampos();
+                    if (valido == true)
+                    {
+                        ObjetoCCM.InsertarUsuarios(UsuarioAdd);
+                        MessageBox.Show("El Registro se Ingreso Satisfactoriamente");
+                        MostrarUsuarios();
+                        LimpiarCampos();
+                    }
+
                 }
                 catch (Exception ex)
                 {
 
                     MessageBox.Show("No Se Pudo Ingresar el Registro: " + ex.ToString());
                 }
-                
+
 
             }
             //EDITAR

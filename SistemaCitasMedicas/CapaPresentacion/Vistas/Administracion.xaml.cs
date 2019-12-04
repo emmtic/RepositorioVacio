@@ -28,14 +28,14 @@ namespace CapaPresentacion.Vistas
         }
         private void CargarDatosDelUsuario() {
             if (UsuarioLoginCache.EsAdministrador==true) {
-                lbl_categoria.Content = "Administrador";
-                lbl_nombre.Content = UsuarioLoginCache.Nombre + " " + UsuarioLoginCache.Apellido;
+                lbl_categoria.Content = "ADMINISTRADOR";
+                lbl_nombre.Content = UsuarioLoginCache.Nombre + "\n" + UsuarioLoginCache.Apellido;
                 
             }
             else
             {
-                lbl_categoria.Content = "Usuario Estandar";
-                lbl_nombre.Content = UsuarioLoginCache.Nombre + " " + UsuarioLoginCache.Apellido;
+                lbl_categoria.Content = "USUARIO ESTANDAR";
+                lbl_nombre.Content = UsuarioLoginCache.Nombre + "\n" + UsuarioLoginCache.Apellido;
                 btn_abmMedico.IsEnabled = false;
                 btn_abmUsuario.IsEnabled = false;
 

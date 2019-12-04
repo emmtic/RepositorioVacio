@@ -93,7 +93,8 @@ namespace CapaDatos
         {
             MySqlCommand comando = new MySqlCommand();
 
-            string cadena = "DELETE FROM usuario WHERE id_usuario=@idUsuario";
+            //string cadena = "DELETE FROM usuario WHERE id_usuario=@idUsuario";
+            string cadena = "UPDATE usuario SET es_activo=0 WHERE id_usuario=@idUsuario";
 
             comando.Parameters.AddWithValue("@idUsuario", idUsuario);
             comando.Connection = conexion.AbrirConexion();

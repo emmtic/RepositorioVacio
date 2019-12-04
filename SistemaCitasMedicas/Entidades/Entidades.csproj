@@ -31,7 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Cache\UsuarioLoginCache.cs" />
     <Compile Include="Especialidades.cs" />
+    <Compile Include="Helps\ValidacionDatos.cs" />
     <Compile Include="HorarioMedico.cs" />
     <Compile Include="Medico.cs" />
     <Compile Include="Paciente.cs" />

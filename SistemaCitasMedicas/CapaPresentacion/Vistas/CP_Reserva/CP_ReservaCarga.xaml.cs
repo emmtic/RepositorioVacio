@@ -51,7 +51,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
             CargoListas();
             DatosParaIniciar();
-            btnAgregarCita.Content = "Reservar Turno";
+            btnAgregarCita.Content = "RESERVAR TURNO";
         }
 
         public CP_ReservaCarga(List<Reserva> reclistReservasAll, Reserva recReservaMod) //Para instancia si hay que MODIFICAR una reserva
@@ -64,7 +64,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             CargoListas();
             DatosParaIniciar();
             this.CargaFormMod();
-            btnAgregarCita.Content = "Modificar Turno";
+            btnAgregarCita.Content = "MODIFICAR TURNO";
         }
 
 

@@ -5,48 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion.Vistas"
         mc:Ignorable="d"
-        Title="MOSTRAR PACIENTES DEL SISTEMA" Height="520" Width="1263">
-    <Grid>
-        <DataGrid x:Name="dtg_verPacientes" HorizontalAlignment="Left" Height="297" Margin="32,104,0,0" VerticalAlignment="Top" Width="715" />
-        <Button x:Name="btn_agregarPaciente" Content="GUARDAR PACIENTE" HorizontalAlignment="Left" Margin="876,438,0,0" VerticalAlignment="Top" Width="330" Height="42" Click="btn_agregarPaciente_Click"/>
-        <Button x:Name="btn_modificarPaciente" Content="EDITAR PACIENTE" HorizontalAlignment="Left" Margin="32,440,0,0" VerticalAlignment="Top" Width="330" Height="42" Click="btn_modificarPaciente_Click"/>
-        <Button x:Name="btn_borrarPaciente" Content="BORRAR PACIENTE" HorizontalAlignment="Left" Margin="417,440,0,0" VerticalAlignment="Top" Width="330" Height="42" Click="btn_borrarPaciente_Click"/>
-        <Label x:Name="lbl_dni" Content="DNI" HorizontalAlignment="Left" Margin="752,45,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_dni" HorizontalAlignment="Left" Height="23" Margin="876,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Label x:Name="lbl_nombre" Content="Nombre" HorizontalAlignment="Left" Margin="752,76,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="23" Margin="876,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Label x:Name="lbl_apellido" Content="Apellido" HorizontalAlignment="Left" Margin="752,104,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_apellido" HorizontalAlignment="Left" Height="23" Margin="876,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Label x:Name="lbl_email" Content="Email" HorizontalAlignment="Left" Margin="752,191,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_email" HorizontalAlignment="Left" Height="23" Margin="876,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Label x:Name="lbl_genero" Content="Genero" HorizontalAlignment="Left" Margin="752,134,0,0" VerticalAlignment="Top"/>
+        Title="MOSTRAR PACIENTES DEL SISTEMA" Height="612.542" Width="1139" HorizontalAlignment="Left" VerticalAlignment="Top" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="paciente.png">
+    <Grid Background="#FFCCDBE8">
+        <Rectangle Fill="#FFB4B4B4" HorizontalAlignment="Left" Height="559" Stroke="Black" VerticalAlignment="Top" Width="497" Margin="624,10,0,0" StrokeThickness="0"/>
+        <DataGrid x:Name="dtg_verPacientes" HorizontalAlignment="Left" Height="368" Margin="32,104,0,0" VerticalAlignment="Top" Width="550" Background="#FFB3BFEA" />
+        <Button x:Name="btn_agregarPaciente" Content="GUARDAR PACIENTE" HorizontalAlignment="Left" Margin="637.5,477,0,0" VerticalAlignment="Top" Width="220" Height="45" Click="btn_agregarPaciente_Click" Background="#FF141072" FontFamily="Century Gothic" Foreground="White"/>
+        <Button x:Name="btn_modificarPaciente" Content="EDITAR PACIENTE" HorizontalAlignment="Left" Margin="237,477,0,0" VerticalAlignment="Top" Width="170" Height="45" Click="btn_modificarPaciente_Click" Background="#FF25721D" FontFamily="Century Gothic" Foreground="White"/>
+        <Button x:Name="btn_borrarPaciente" Content="BORRAR PACIENTE" HorizontalAlignment="Left" Margin="412,477,0,0" VerticalAlignment="Top" Width="170" Height="45" Click="btn_borrarPaciente_Click" Background="#FFCF3535" FontFamily="Century Gothic" Foreground="White"/>
+        <Label x:Name="lbl_dni" Content="DNI" HorizontalAlignment="Left" Margin="637.5,22.57,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_dni" HorizontalAlignment="Left" Height="23" Margin="637.5,48.53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_nombre" Content="Nombre" HorizontalAlignment="Left" Margin="637.5,71.53,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="23" Margin="637.5,97.49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_apellido" Content="Apellido" HorizontalAlignment="Left" Margin="637.5,120.49,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_apellido" HorizontalAlignment="Left" Height="23" Margin="637.5,151.45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_email" Content="Email" HorizontalAlignment="Left" Margin="637.5,272.33,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_email" HorizontalAlignment="Left" Height="23" Margin="637.5,298.29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_genero" Content="Genero" HorizontalAlignment="Left" Margin="637.5,174.45,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
 
-        <Label x:Name="lbl_esActivo" Content="Estado de Paciente" HorizontalAlignment="Left" Margin="752,218,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_fechaAlta" Content="Fecha De Alta" HorizontalAlignment="Left" Margin="752,245,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_esActivo" Content="Estado de Paciente" HorizontalAlignment="Left" Margin="882.5,23.82,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label x:Name="lbl_fechaAlta" Content="Fecha De Alta" HorizontalAlignment="Left" Margin="882.499,222.37,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
 
-        <ComboBox x:Name="cmb_EstadoPaciente" HorizontalAlignment="Left" Margin="876,218,0,0" VerticalAlignment="Top" Width="220" >
+        <ComboBox x:Name="cmb_EstadoPaciente" HorizontalAlignment="Left" Margin="882.5,48.53,0,0" VerticalAlignment="Top" Width="220" >
             <ComboBoxItem Content="Habilitado"/>
             <ComboBoxItem Content="Deshabilitado"/>
         </ComboBox>
-        <DatePicker x:Name="dt_fechaAlta" HorizontalAlignment="Left" Margin="876,245,0,0" VerticalAlignment="Top" Width="220"/>
-        <Label x:Name="lbl_direccion" Content="Direccion" HorizontalAlignment="Left" Margin="752,276,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="23" Margin="876,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="23" Margin="876,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Label x:Name="lbl_telefono" Content="Telefono" HorizontalAlignment="Left" Margin="752,307,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmb_genero" HorizontalAlignment="Left" Margin="876,132,0,0" VerticalAlignment="Top" Width="220">
+        <DatePicker x:Name="dt_fechaAlta" HorizontalAlignment="Left" Margin="882.5,248.33,0,0" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_direccion" Content="Direccion" HorizontalAlignment="Left" Margin="637.5,321.29,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="23" Margin="637.5,347.25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="23" Margin="637.5,396.21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_telefono" Content="Telefono" HorizontalAlignment="Left" Margin="637.5,370.25,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <ComboBox x:Name="cmb_genero" HorizontalAlignment="Left" Margin="637.5,200.41,0,0" VerticalAlignment="Top" Width="220">
             <ComboBoxItem Content="Masculino"/>
             <ComboBoxItem Content="Femenino"/>
         </ComboBox>
-        <DatePicker x:Name="dt_fecha_nac" HorizontalAlignment="Left" Margin="876,161,0,0" VerticalAlignment="Top" Width="220"/>
-        <Label x:Name="lbl_fecha_nac" Content="Fecha de Nacimiento" HorizontalAlignment="Left" Margin="752,160,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_enfermedad" HorizontalAlignment="Left" Height="23" Margin="876,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Label x:Name="lbl_medicamentos" Content="Mecicamentos" HorizontalAlignment="Left" Margin="752,364,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_alergia" Content="Aletgia" HorizontalAlignment="Left" Margin="752,395,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_enfermedad" Content="Efermedad" HorizontalAlignment="Left" Margin="752,333,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_medicamentos" HorizontalAlignment="Left" Height="23" Margin="876,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <TextBox x:Name="txt_alergia" HorizontalAlignment="Left" Height="23" Margin="876,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
-        <Button x:Name="btn_buscar" Content="buscar" HorizontalAlignment="Left" Margin="390,40,0,0" VerticalAlignment="Top" Width="111" Height="36" Click="btn_buscar_Click"/>
-        <TextBox x:Name="txt_buscar_dni" HorizontalAlignment="Left" Height="23" Margin="178,45,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="186"/>
-        <Label x:Name="lbl_buscar" Content="Buscar Paciente (DNI):" HorizontalAlignment="Left" Margin="44,45,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.842,0.038" Width="129"/>
+        <DatePicker x:Name="dt_fecha_nac" HorizontalAlignment="Left" Margin="637.5,248.33,0,0" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_fecha_nac" Content="Fecha de Nacimiento" HorizontalAlignment="Left" Margin="637.5,222.37,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_enfermedad" HorizontalAlignment="Left" Height="23" Margin="882.5,96.45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_medicamentos" Content="Mecicamentos" HorizontalAlignment="Left" Margin="878.413,120.49,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label x:Name="lbl_alergia" Content="Aletgia" HorizontalAlignment="Left" Margin="882.5,174.45,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label x:Name="lbl_enfermedad" Content="Efermedad" HorizontalAlignment="Left" Margin="882.5,70.49,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_medicamentos" HorizontalAlignment="Left" Height="23" Margin="882.5,151.45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <TextBox x:Name="txt_alergia" HorizontalAlignment="Left" Height="23" Margin="882.5,200.41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Button x:Name="btn_buscar" Content="BUSCAR" HorizontalAlignment="Left" Margin="412,48.53,0,0" VerticalAlignment="Top" Width="170" Height="45" Click="btn_buscar_Click" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_buscar_dni" HorizontalAlignment="Left" Height="23" Margin="185,59.763,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="222"/>
+        <Label x:Name="lbl_buscar" Content="BUSCAR PACIENTE (DNI)" HorizontalAlignment="Left" Margin="32,58.05,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.842,0.038" Width="148" FontFamily="Century Gothic"/>
     </Grid>
 </Window>

@@ -15,5 +15,6 @@ namespace Entidades.Cache
         public static string Contraseña { get; set; }
         public static string Email { get; set; }
         public static bool EsAdministrador { get; set; }
+        public static bool EsActivo { get; set; }
     }
 }

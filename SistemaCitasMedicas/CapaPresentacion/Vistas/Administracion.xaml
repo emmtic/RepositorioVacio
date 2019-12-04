@@ -5,16 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion.Vistas"
         mc:Ignorable="d"
-        Title="Administracion" Height="276" Width="448" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Administracion" Height="351" Width="491" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FFCCDBE8" Icon="calendario.png">
     <Grid>
-        <Label x:Name="lbl_categoria" Content="Categoria" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="216" FontSize="14" Foreground="#FF30E258" FontFamily="Agency FB"/>
-        <Label x:Name="lbl_nombre" Content="Nombre" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Width="216" FontSize="11" FontFamily="Agency FB" FontWeight="Bold"/>
-        <Label x:Name="lblBienvenido" Content="BIENVENIDO" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top" Width="96" FontSize="14" FontWeight="Bold" FontFamily="Agency FB"/>
-        <Button x:Name="btn_ReservarTurno" Content="RESERVAR TURNO" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="250" Height="41" Click="btn_ReservarTurno_Click"/>
-        <Button x:Name="btn_abmUsuario" Content="ABM USUARIOS" HorizontalAlignment="Left" Margin="155,105,0,0" VerticalAlignment="Top" Width="250" Height="41" Click="btn_abmUsuario_Click"/>
-        <Button x:Name="btn_abm_paciente" Content="ABM PACIENTES" HorizontalAlignment="Left" Margin="155,151,0,0" VerticalAlignment="Top" Width="250" Height="41" Click="btn_abm_paciente_Click"/>
-        <Button x:Name="btn_abmMedico" Content="ABM MEDICOS" HorizontalAlignment="Left" Margin="155,197,0,0" VerticalAlignment="Top" Width="250" Height="41" Click="btn_abmMedico_Click"/>
-        <Button x:Name="btn_RegistrosCitas" Content="REGISTROS CITAS MEDICAS" HorizontalAlignment="Left" Margin="155,59,0,0" VerticalAlignment="Top" Width="250" Height="41" Click="btn_RegistrosCitas_Click"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="110" Margin="10,111.577,0,0" VerticalAlignment="Top" Width="100" Source="usuario.png">
+            <Image.Effect>
+                <DropShadowEffect ShadowDepth="1" Direction="270" BlurRadius="6"/>
+            </Image.Effect>
+        </Image>
+
+        <Label x:Name="lbl_categoria" Content="CATEGORIA" HorizontalAlignment="Left" Margin="10,26.833,0,0" VerticalAlignment="Top" Width="216" FontSize="14" Foreground="#FF1AA439" FontFamily="Century Gothic" Background="{x:Null}" FontStyle="Italic"/>
+        <Label x:Name="lbl_nombre" Content="Nombre" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="220" FontFamily="Century Gothic" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="lblBienvenido" Content="BIENVENIDO" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" FontSize="15" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Button x:Name="btn_ReservarTurno" Content="RESERVAR TURNO" HorizontalAlignment="Left" Margin="150.4,6.577,0,0" VerticalAlignment="Top" Width="300" Height="50" Click="btn_ReservarTurno_Click" Background="#FF5085E2"/>
+        <Button x:Name="btn_abmUsuario" Content="ABM USUARIOS" HorizontalAlignment="Left" Margin="150.4,116.577,0,0" VerticalAlignment="Top" Width="300" Height="50" Click="btn_abmUsuario_Click" Background="#FF5085E2"/>
+        <Button x:Name="btn_abm_paciente" Content="ABM PACIENTES" HorizontalAlignment="Left" Margin="150.4,171.577,0,0" VerticalAlignment="Top" Width="300" Height="50" Click="btn_abm_paciente_Click" Background="#FF5085E2"/>
+        <Button x:Name="btn_abmMedico" Content="ABM MEDICOS" HorizontalAlignment="Left" Margin="150.4,226.577,0,0" VerticalAlignment="Top" Width="300" Height="50" Click="btn_abmMedico_Click" Background="#FF5085E2"/>
+        <Button x:Name="btn_RegistrosCitas" Content="REGISTROS CITAS MEDICAS" HorizontalAlignment="Left" Margin="150.4,61.577,0,0" VerticalAlignment="Top" Width="300" Height="50" Click="btn_RegistrosCitas_Click" Background="#FF5085E2"/>
 
     </Grid>
 </Window>

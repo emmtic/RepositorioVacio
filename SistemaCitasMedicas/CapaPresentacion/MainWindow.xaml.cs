@@ -16,6 +16,7 @@ using CapaPresentacion.Vistas;
 using System.Data;
 using Entidades;
 using CapaCitasMedicas;
+using Entidades.Cache;
 
 namespace CapaPresentacion
 {
@@ -45,10 +46,17 @@ namespace CapaPresentacion
                     var ValidarLogin = Login.CheckUsuarios(txt_nombreUsuario.Text, psw_contraseña.Password);
                     if (ValidarLogin==true)
                     {
-                        Administracion VentanaAdministracion = new Administracion();
-                        VentanaAdministracion.Show();
-                        
-                        this.Hide();
+
+                        if (UsuarioLoginCache.EsActivo==false)
+                        {
+                            MensajeError("Usuario Inhabilitado.\nConsulte con un Administrador.");
+                        }
+                        else
+                        {
+                            Administracion VentanaAdministracion = new Administracion();
+                            VentanaAdministracion.Show();
+                            this.Hide();
+                        }
                     }
                     else
                     {

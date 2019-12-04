@@ -34,6 +34,7 @@ namespace CapaDatos
                         UsuarioLoginCache.Nombre = leer.GetString(2);
                         UsuarioLoginCache.Apellido = leer.GetString(3);
                         UsuarioLoginCache.Email = leer.GetString(4);
+                        UsuarioLoginCache.EsActivo = leer.GetBoolean(6);
                         UsuarioLoginCache.EsAdministrador = leer.GetBoolean(7);
                     }
                     return true;

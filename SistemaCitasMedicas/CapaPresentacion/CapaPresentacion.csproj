@@ -174,5 +174,44 @@
       <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Home 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\Administracion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\Medico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\CP_Reserva\Reserva.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\CP_Reserva\Cita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\CP_Reserva\Medico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\paciente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\CP_Reserva\paciente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\reloj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vistas\comprobado.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

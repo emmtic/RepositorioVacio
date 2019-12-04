@@ -5,15 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion"
         mc:Ignorable="d"
-        Title="BIENVENIDOS AL SISTEMA DE GESTION DE CITAS" Height="400" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+         Title="LOGIN" Height="492" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" TextBlock.TextAlignment="Center" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" SizeToContent="WidthAndHeight" Icon="Home 2.png">
     <Grid>
 
-        <Button x:Name="btn_ingresar" Content="INGRESAR" HorizontalAlignment="Left" Margin="140,270,0,0" VerticalAlignment="Top" Width="116" Height="30" Click="btn_ingresar_Click"/>
-        <Label x:Name="lbl_usuario" Content="Usuario" HorizontalAlignment="Left" Margin="94,46,0,0" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="txt_nombreUsuario" HorizontalAlignment="Left" Height="24" Margin="94,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <Label x:Name="lbl_contraseña" Content="Contraseña" HorizontalAlignment="Left" Margin="94,122,0,0" VerticalAlignment="Top" Width="200"/>
-        <PasswordBox x:Name="psw_contraseña" HorizontalAlignment="Left" Margin="94,148,0,0" VerticalAlignment="Top" Width="200" Height="24" PasswordChar="*"/>
-        <Label x:Name="lbl_mensajeDeError" Content="Mensaje de Error: " HorizontalAlignment="Left" Margin="70,196,0,0" VerticalAlignment="Top" Visibility="Hidden" FontSize="16"/>
+        <Rectangle HorizontalAlignment="Left" Height="317.666" Stroke="Black" VerticalAlignment="Top" Width="344" StrokeThickness="0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FF5F66FF" Offset="0.084"/>
+                    <GradientStop Color="#FFE4E4EE" Offset="0.787"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Image x:Name="image" Height="82.756" Margin="129.199,9.91,132.044,370.334" Width="82.756" Source="Home.png" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect Color="#FF9D97DA" ShadowDepth="2" Direction="279" BlurRadius="9"/>
+            </Image.Effect>
+        </Image>
+
+        <Button x:Name="btn_ingresar" Content="INGRESAR" Margin="62.333,341.666,61.667,0" VerticalAlignment="Top" Height="50" Click="btn_ingresar_Click" Width="220" Background="#FF7671E2" Foreground="White" FontWeight="Bold" FontSize="15" FontFamily="Century Gothic"/>
+        <Label x:Name="lbl_usuario" Content="Usuario" Margin="82,97.666,125.423,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_nombreUsuario" HorizontalAlignment="Left" Height="24" Margin="82,128.667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+        <Label x:Name="lbl_contraseña" Content="Contraseña" HorizontalAlignment="Left" Margin="82,172.666,0,0" VerticalAlignment="Top" Width="184" FontFamily="Century Gothic"/>
+        <PasswordBox x:Name="psw_contraseña" HorizontalAlignment="Left" Margin="82,198.667,0,0" VerticalAlignment="Top" Width="184" Height="24" PasswordChar="*"/>
+        <Label x:Name="lbl_mensajeDeError" Content="Mensaje de Error: " Margin="62.333,281.666,61.667,126.334" Visibility="Visible"
+               FontSize="11" FontFamily="Century Gothic" FontStyle="Italic" Foreground="Red" Height="55" TextBlock.TextAlignment="Center"/>
 
     </Grid>
 </Window>

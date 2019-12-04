@@ -60,7 +60,7 @@ namespace CapaPresentacion.Vistas
 
             if (this.listHmMed.Count > 0)
             {
-                btnEnviarABM.Content = "Modificar Horarios";
+                btnEnviarABM.Content = "MODIFICAR HORARIOS";
                 CargaFormMod();
                 this.editar = true;
             }

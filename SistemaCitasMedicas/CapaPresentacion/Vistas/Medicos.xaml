@@ -5,50 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CapaPresentacion.Vistas"
         mc:Ignorable="d"
-        Title="MOSTRAR MEDICOS DEL SISTEMA" Height="560" Width="1100">
+        Title="MOSTRAR MEDICOS DEL SISTEMA" Height="631" Width="1172" Background="#FFCCDBE8" Icon="Medico.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" HorizontalAlignment="Left" VerticalAlignment="Top">
     <Grid>
-        <DataGrid x:Name="dtg_verMedicos" HorizontalAlignment="Left" Height="300" Margin="10,134,0,0" VerticalAlignment="Top" Width="628" />
-        <Button x:Name="btn_agregarMedico" Content="GUARDAR MEDICO" HorizontalAlignment="Left" Margin="797,473,0,0" VerticalAlignment="Top" Width="257" Height="42" Click="btn_agregarMedico_Click"/>
-        <Button x:Name="btn_modificarMedico" Content="EDITAR MEDICO" HorizontalAlignment="Left" Margin="10,473,0,0" VerticalAlignment="Top" Width="239" Height="42" Click="btn_modificarMedico_Click"/>
-        <Button x:Name="btn_borrarMedico" Content="BORRAR MEDICO" HorizontalAlignment="Left" Margin="270,473,0,0" VerticalAlignment="Top" Width="243" Height="42" Click="btn_borrarMedico_Click"/>
-        <Label x:Name="lbl_dni" Content="DNI" HorizontalAlignment="Left" Margin="660,86,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_dni" HorizontalAlignment="Left" Height="23" Margin="789,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-        <Label x:Name="lbl_nombre" Content="Nombre" HorizontalAlignment="Left" Margin="660,112,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="23" Margin="789,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-        <Label x:Name="lbl_apellido" Content="Apellido" HorizontalAlignment="Left" Margin="660,138,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_apellido" HorizontalAlignment="Left" Height="23" Margin="789,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-        <Label x:Name="lbl_email" Content="Email" HorizontalAlignment="Left" Margin="660,230,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_email" HorizontalAlignment="Left" Height="23" Margin="789,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-        <Label x:Name="lbl_genero" Content="Genero" HorizontalAlignment="Left" Margin="660,169,0,0" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FFB4B4B4" Height="553.12" Stroke="Black" Width="509.5" Margin="621,15.88,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" StrokeThickness="0"/>
+        <DataGrid x:Name="dtg_verMedicos" HorizontalAlignment="Left" Height="368" Margin="37,121.92,0,0" VerticalAlignment="Top" Width="550" Background="#FFB3BFEA" />
+        <Button x:Name="btn_agregarMedico" Content="GUARDAR MEDICO" HorizontalAlignment="Left" Margin="639,494.92,0,0" VerticalAlignment="Top" Width="220" Height="46" Click="btn_agregarMedico_Click" Background="#FF141072" Foreground="White" FontFamily="Century Gothic"/>
+        <Button x:Name="btn_modificarMedico" Content="EDITAR MEDICO" HorizontalAlignment="Left" Margin="66,494.92,0,0" VerticalAlignment="Top" Width="170" Height="45" Click="btn_modificarMedico_Click" Background="#FF25721D" Foreground="White" FontFamily="Century Gothic"/>
+        <Button x:Name="btn_borrarMedico" Content="BORRAR MEDICO" HorizontalAlignment="Left" Margin="241,494.92,0,0" VerticalAlignment="Top" Width="170" Height="45" Click="btn_borrarMedico_Click" Background="#FFCF3535" Foreground="White" FontFamily="Century Gothic"/>
+        <Label x:Name="lbl_dni" Content="DNI" HorizontalAlignment="Left" Margin="639,44.93,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_dni" HorizontalAlignment="Left" Height="23" Margin="639,71.92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_nombre" Content="Nombre" HorizontalAlignment="Left" Margin="639,94.92,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="23" Margin="639,120.88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_apellido" Content="Apellido" HorizontalAlignment="Left" Margin="639,143.88,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_apellido" HorizontalAlignment="Left" Height="23" Margin="639,169.84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_email" Content="Email" HorizontalAlignment="Left" Margin="639,389.93,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_email" HorizontalAlignment="Left" Height="23" Margin="639,415.89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_genero" Content="Genero" HorizontalAlignment="Left" Margin="639,192.84,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
 
-        <Label x:Name="lbl_esActivo" Content="Estado de Paciente" HorizontalAlignment="Left" Margin="660,256,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_fechaAlta" Content="Fecha De Alta" HorizontalAlignment="Left" Margin="660,284,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_esActivo" Content="Estado del Médico" HorizontalAlignment="Left" Margin="889,94.92,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label x:Name="lbl_fechaAlta" Content="Fecha De Alta" HorizontalAlignment="Left" Margin="889,143.88,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
 
-        <ComboBox x:Name="cmb_EstadoMedico" HorizontalAlignment="Left" Margin="789,256,0,0" VerticalAlignment="Top" Width="265" >
+        <ComboBox x:Name="cmb_EstadoMedico" HorizontalAlignment="Left" Margin="889,120.88,0,0" VerticalAlignment="Top" Width="220" Height="23" >
             <ComboBoxItem Content="Habilitado"/>
             <ComboBoxItem Content="Deshabilitado"/>
         </ComboBox>
-        <DatePicker x:Name="dt_fechaAlta" HorizontalAlignment="Left" Margin="789,284,0,0" VerticalAlignment="Top" Width="265"/>
-        <Label x:Name="lbl_direccion" Content="Direccion" HorizontalAlignment="Left" Margin="660,315,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="23" Margin="789,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="23" Margin="789,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-        <Label x:Name="lbl_telefono" Content="Telefono" HorizontalAlignment="Left" Margin="660,344,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmb_genero" HorizontalAlignment="Left" Margin="789,169,0,0" VerticalAlignment="Top" Width="265">
+        <DatePicker x:Name="dt_fechaAlta" HorizontalAlignment="Left" Margin="889,169.84,0,0" VerticalAlignment="Top" Width="220" Height="23"/>
+        <Label x:Name="lbl_direccion" Content="Direccion" HorizontalAlignment="Left" Margin="639,290.76,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="23" Margin="639,316.72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="23" Margin="639,365.68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_telefono" Content="Telefono" HorizontalAlignment="Left" Margin="639,339.72,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <ComboBox x:Name="cmb_genero" HorizontalAlignment="Left" Margin="639,218.8,0,0" VerticalAlignment="Top" Width="220" Height="23">
             <ComboBoxItem Content="Masculino"/>
             <ComboBoxItem Content="Femenino"/>
         </ComboBox>
-        <DatePicker x:Name="dt_fecha_nac" HorizontalAlignment="Left" Margin="789,199,0,0" VerticalAlignment="Top" Width="265"/>
-        <Label x:Name="lbl_fecha_nac" Content="Fecha de Nacimiento" HorizontalAlignment="Left" Margin="660,200,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_matricula" Content="Matricula" HorizontalAlignment="Left" Margin="660,375,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txt_matricula" HorizontalAlignment="Left" Height="23" Margin="789,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-        <Label x:Name="lbl_especialidad" Content="Especialidad" HorizontalAlignment="Left" Margin="660,408,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmb_especialidad" HorizontalAlignment="Left" Margin="789,408,0,0" VerticalAlignment="Top" Width="152"/>
-        <Button x:Name="btn_buscar" Content="Buscar" HorizontalAlignment="Left" Margin="588,58,0,0" VerticalAlignment="Top" Width="50" Click="btn_buscar_Click"/>
-        <Label x:Name="lbl_buscar" Content="Buscar Medicos:" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_cargar_horarios_medico" Content="HORARIOS MEDICOS" HorizontalAlignment="Left" Margin="545,473,0,15" Width="225" Click="btn_cargar_horarios_medico_Click"/>
-        <TextBox x:Name="txt_buscar" HorizontalAlignment="Left" Height="23" Margin="119,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
-        <Button x:Name="btn_cargar_especialidades_medicos" Content="+ Especialidades" HorizontalAlignment="Left" Margin="946,408,0,0" VerticalAlignment="Top" Width="108" Click="btn_cargar_especialidades_medicos_Click"/>
-        <ComboBox x:Name="cmb_seleccionar_atributo" HorizontalAlignment="Left" Margin="398,58,0,0" VerticalAlignment="Top" Width="161"/>
-        <Label Content="Seleccione el campo de busqueda" HorizontalAlignment="Left" Margin="398,27,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dt_fecha_nac" HorizontalAlignment="Left" Margin="639,267.76,0,0" VerticalAlignment="Top" Width="220" Height="23"/>
+        <Label x:Name="lbl_fecha_nac" Content="Fecha de Nacimiento" HorizontalAlignment="Left" Margin="639,241.8,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Label x:Name="lbl_matricula" Content="Matricula" HorizontalAlignment="Left" Margin="889,44.93,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_matricula" HorizontalAlignment="Left" Height="23" Margin="889,70.89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lbl_especialidad" Content="Especialidad" HorizontalAlignment="Left" Margin="889,192.84,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <ComboBox x:Name="cmb_especialidad" HorizontalAlignment="Left" Margin="889,218.8,0,0" VerticalAlignment="Top" Width="152"/>
+        <Button x:Name="btn_buscar" Content="BUSCAR" HorizontalAlignment="Left" Margin="416,71.92,0,0" VerticalAlignment="Top" Width="170" Click="btn_buscar_Click" Height="45" FontFamily="Century Gothic"/>
+        <Label x:Name="lbl_buscar" Content="Buscar Medicos:" HorizontalAlignment="Left" Margin="37,40.92,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
+        <Button x:Name="btn_cargar_horarios_medico" Content="GESTIONAR HORARIOS" HorizontalAlignment="Left" Margin="416,494.92,0,0" Width="170" Click="btn_cargar_horarios_medico_Click" VerticalAlignment="Top" Height="45" Background="#FFD433BF" Foreground="White" FontFamily="Century Gothic"/>
+        <TextBox x:Name="txt_buscar" HorizontalAlignment="Left" Height="23" Margin="146,40.92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222"/>
+        <Button x:Name="btn_cargar_especialidades_medicos" Content="+ ESPECIALIDADES" HorizontalAlignment="Left" Margin="889,267.76,0,0" VerticalAlignment="Top" Width="220" Click="btn_cargar_especialidades_medicos_Click" Height="120.92" Background="#FF76D1F3" FontFamily="Century Gothic"/>
+        <ComboBox x:Name="cmb_seleccionar_atributo" HorizontalAlignment="Left" Margin="416,40.92,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label Content="Seleccione el campo de busqueda" HorizontalAlignment="Left" Margin="369.503,10,0,0" VerticalAlignment="Top" FontFamily="Century Gothic"/>
     </Grid>
 </Window>
