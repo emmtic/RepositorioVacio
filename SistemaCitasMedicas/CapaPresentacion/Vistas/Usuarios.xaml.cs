@@ -4,6 +4,7 @@ using System.Windows;
 using Entidades;
 using System;
 using CapaPresentacion.Vistas.CP_Reserva;
+using NLog;
 
 namespace CapaPresentacion.Vistas
 {
@@ -25,6 +26,7 @@ namespace CapaPresentacion.Vistas
         {
             dtg_verUsuarios.ItemsSource = ObjetoCCM.MostrarUsuarios();
         }
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         private void btn_agregarUsuario_Click(object sender, RoutedEventArgs e)
         {
@@ -71,7 +73,7 @@ namespace CapaPresentacion.Vistas
                 }
                 catch (Exception ex)
                 {
-
+                    logger.Error(ex,"Error de Registro");
                     MessageBox.Show("No Se Pudo Ingresar el Registro: " + ex.ToString());
                 }
 

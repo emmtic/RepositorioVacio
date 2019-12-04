@@ -17,7 +17,7 @@ using System.Data;
 using Entidades;
 using CapaCitasMedicas;
 using Entidades.Cache;
-
+using NLog;
 namespace CapaPresentacion
 {
     /// <summary>
@@ -35,44 +35,88 @@ namespace CapaPresentacion
         {
             
         }
-
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private void btn_ingresar_Click(object sender, RoutedEventArgs e)
         {
-            if (txt_nombreUsuario.Text!="")
+            try
             {
-                if (psw_contraseña.Password!="")
+                if (txt_nombreUsuario.Text != "")
                 {
-                    CCM_Login Login = new CCM_Login();
-                    var ValidarLogin = Login.CheckUsuarios(txt_nombreUsuario.Text, psw_contraseña.Password);
-                    if (ValidarLogin==true)
+                    if (psw_contraseña.Password != "")
                     {
-
-                        if (UsuarioLoginCache.EsActivo==false)
+                        CCM_Login Login = new CCM_Login();
+                        var ValidarLogin = Login.CheckUsuarios(txt_nombreUsuario.Text, psw_contraseña.Password);
+                        if (ValidarLogin == true)
                         {
-                            MensajeError("Usuario Inhabilitado.\nConsulte con un Administrador.");
+
+                            if (UsuarioLoginCache.EsActivo == false)
+                            {
+                                MensajeError("Usuario Inhabilitado.\nConsulte con un Administrador.");
+                            }
+                            else
+                            {
+                                Administracion VentanaAdministracion = new Administracion();
+                                VentanaAdministracion.Show();
+                                this.Hide();
+                            }
                         }
                         else
                         {
-                            Administracion VentanaAdministracion = new Administracion();
-                            VentanaAdministracion.Show();
-                            this.Hide();
+                            MensajeError("Usuario y/o Contraseña Incorrectos.\n Verifique e Intente Nuevamente.");
                         }
                     }
                     else
                     {
-                        MensajeError("Usuario y/o Contraseña Incorrectos.\n Verifique e Intente Nuevamente.");
+                        MensajeError("Ingrese una Contraseña");
                     }
+
                 }
                 else
                 {
-                    MensajeError("Ingrese una Contraseña");
+                    MensajeError("Ingrese un Usuario");
                 }
 
             }
-            else 
+            catch (Exception ex)
             {
-                MensajeError("Ingrese un Usuario");
+                logger.Error(ex, "Intento Fallido de inicio de sesion");
+                MessageBox.Show("No Se puede Loguear"+ ex.ToString());;
             }
+            //if (txt_nombreUsuario.Text!="")
+            //{
+            //    if (psw_contraseña.Password!="")
+            //    {
+            //        CCM_Login Login = new CCM_Login();
+            //        var ValidarLogin = Login.CheckUsuarios(txt_nombreUsuario.Text, psw_contraseña.Password);
+            //        if (ValidarLogin==true)
+            //        {
+
+            //            if (UsuarioLoginCache.EsActivo==false)
+            //            {
+            //                MensajeError("Usuario Inhabilitado.\nConsulte con un Administrador.");
+            //            }
+            //            else
+            //            {
+            //                Administracion VentanaAdministracion = new Administracion();
+            //                VentanaAdministracion.Show();
+            //                this.Hide();
+            //            }
+            //        }
+            //        else
+            //        {
+            //            MensajeError("Usuario y/o Contraseña Incorrectos.\n Verifique e Intente Nuevamente.");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MensajeError("Ingrese una Contraseña");
+            //    }
+
+            //}
+            //else 
+            //{
+            //    MensajeError("Ingrese un Usuario");
+            //}
             
         }
         private void MensajeError(string msj) {
