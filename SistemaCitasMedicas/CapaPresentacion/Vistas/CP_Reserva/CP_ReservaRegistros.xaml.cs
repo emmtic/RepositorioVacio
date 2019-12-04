@@ -7,10 +7,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Entidades;
 using CapaCitasMedicas;
 
@@ -40,6 +36,9 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             txtboxMatmed.IsEnabled = txtboxDnipac.IsEnabled = txtboxUsu.IsEnabled = false;
             dtpickerFiltro.IsEnabled = false;
             dtgridRegistrosCita.IsReadOnly = true;
+            rdBtnDnipac.IsChecked = false;
+            rdBtnMatmed.IsChecked = false;
+            rdBtnUsu.IsChecked = false;
         }
 
         public void CargaDataGrid()

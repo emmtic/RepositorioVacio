@@ -9,13 +9,10 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Entidades;
 using Entidades.Cache;
 using CapaCitasMedicas;
-
+using NLog;
 
 namespace CapaPresentacion.Vistas.CP_Reserva
 {
@@ -31,6 +28,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
         private CCM_HorarioMedico horariomedicoCCM = new CCM_HorarioMedico();
         private bool editar = false;  //Para diferenciar cuando sean instrucciones para crear una nueva reserva o para modificar una reserva
         private Reserva recReservaMod; //sera cargada en la ventana de registros para modificar
+        private static Logger logger = LogManager.GetCurrentClassLogger(); //Para el uso de Nlog
 
         //listados que necesitare para no conectar de nuevo con la BD
         private List<string> listEspec = null;
@@ -189,6 +187,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                     }
                     catch (Exception ex)
                     {
+                        logger.Error(ex, "Error al insertar nueva Reserva");
                         MessageBox.Show("Error al insertar nueva Reserva: " + ex.ToString());
                     }
                 }
@@ -208,6 +207,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                     }
                     catch (Exception ex)
                     {
+                        logger.Error(ex, "Error al modificar Reserva");
                         MessageBox.Show("Error al modificar Reserva: " + ex.ToString());
                     }
                 }
@@ -286,6 +286,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                 }
 
                 cmbboxHoraCita.ItemsSource = turnosAvista;
+            
             }
             else //Cuando hay que preparar para MODIFICAR la reserva 
             {
@@ -328,6 +329,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
                 }
 
                 cmbboxHoraCita.ItemsSource = turnosAvista;
+                
             }
         }
 
@@ -367,9 +369,9 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
         }
 
-        private void PrecioDecimalValidation(object sender, TextCompositionEventArgs e)
+        private void PrecioDecimalValidation(object sender, TextCompositionEventArgs e) 
         {
-            var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+            var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$"); //filtrando que solo se puedan ingresar numeros y punto decimal
             if (regex.IsMatch(e.Text) && !(e.Text == "." && ((TextBox)sender).Text.Contains(e.Text)))
                 e.Handled = false;
             else
@@ -395,16 +397,6 @@ namespace CapaPresentacion.Vistas.CP_Reserva
 
             return completos;
         }
-
-     
-
-        /*private int getIdFormatoPacMed(string cadena)
-        {
-            string[] datos_PersonaSelec = cadena.Replace(" ", "").Split('-');
-            return Convert.ToInt32(datos_PersonaSelec[1]);
-           
-        }*/
-
 
     }
 }

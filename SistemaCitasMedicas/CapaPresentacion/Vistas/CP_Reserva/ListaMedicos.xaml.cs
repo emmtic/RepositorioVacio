@@ -7,10 +7,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Entidades;
 using CapaCitasMedicas;
 
@@ -26,7 +22,7 @@ namespace CapaPresentacion.Vistas.CP_Reserva
         TextBox txtboxMed = null;
         CCM_Especialidades oEspCCM = new CCM_Especialidades();
         private List<Especialidades> listEspecialidades = null;
-        private List<string> listEspec = null;
+  
         public ListaMedicos(List<Medico> reclistMedicos, TextBox rectextboxMed)
         {
             InitializeComponent();
@@ -39,7 +35,8 @@ namespace CapaPresentacion.Vistas.CP_Reserva
         private void Datosparainiciar()
         {
             txtboxMatmed.Text = "";
-            
+            txtboxMatmed.IsEnabled = false;
+            cmbboxEspec.IsEnabled = false;
             if (this.txtboxMed.Text == "") //por si el textbox viene vacio o cargado por la opcion de modificar una reserva
             {
                 txtblockMedico.Text = "";
@@ -69,6 +66,32 @@ namespace CapaPresentacion.Vistas.CP_Reserva
             }
 
         }
+
+        private void rdBtnFiltroBusq_Checked(object sender, RoutedEventArgs e)
+        {
+            if (rdBtnEsp.IsChecked == true)
+            {
+                cmbboxEspec.IsEnabled = true;
+                cmbboxEspec.Focus();
+            }
+            else
+            {
+                cmbboxEspec.Text = "";
+                cmbboxEspec.IsEnabled = false;
+            }
+
+            if (rdBtnMat.IsChecked == true)
+            {
+                txtboxMatmed.IsEnabled = true;
+                txtboxMatmed.Focus();
+            }
+            else
+            {
+                txtboxMatmed.Text = "";
+                txtboxMatmed.IsEnabled = false;
+            }
+        }
+
 
         private void txtboxMatmed_TextChanged(object sender, TextChangedEventArgs e) //Para el filtro del Dni
         {
