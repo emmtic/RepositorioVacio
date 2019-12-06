@@ -14,7 +14,7 @@ namespace CapaDatos
         //metodos insertar, modificar, quitar de la clase horariomedico
         public void InsertarHorariosMedico(HorarioMedico objHorario)
         {
-            string strQuery = "INSERT INTO horariomedico " +  //fijarse bien el nombre de la tabla
+            string strQuery = "INSERT INTO horariomedico " +  
                 "(id_medico, id_dia, horainicio_a, horafin_a, horainicio_b, horafin_b, " +
                 "duracion_turnos)" +
                 "VALUES(@idMedico, @idDia, @horaInicioA, @horaFinA, @horaInicioB, @horaFinB, " +
